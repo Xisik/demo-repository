@@ -1,0 +1,58 @@
+.container {
+  width: min(var(--container-max), calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  margin: 1rem 0 1.25rem 0;
+}
+
+.site-header .header-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero {
+  margin-bottom: 1rem;
+}
+
+.page-header {
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1rem 0 1.25rem 0;
+}
+
+/* 12열 스팬 규칙 제거(핵심) */
+.card{
+  grid-column: auto;
+}
+
+@media (min-width: 720px){
+  .grid{ grid-template-columns: repeat(3, 1fr); } /* 태블릿 2열 */
+}
+
+@media (min-width: 980px){
+  .grid{ grid-template-columns: repeat(3, 1fr); } /* 데스크탑 4열 */
+}
+
+.site-footer {
+  margin: 1.25rem 0 1rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

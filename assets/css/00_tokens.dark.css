@@ -1,0 +1,57 @@
+/* 1) 수동 토글: data-theme="dark" */
+:root[data-theme="dark"]{
+  color-scheme: dark;
+
+  --main-bg-color   : #171310;
+  --bg-grid-color   : #231D18;
+  --bg-grid-2-color : rgba(35, 29, 24, 0);
+
+  --text-primary    : #EEE8E1;
+  --text-secondary  : #1F1915;
+  --text-shadow     : #4B3E34;
+
+  --surface         : rgba(31, 25, 21, 0.78);
+  --surface-strong  : rgba(31, 25, 21, 0.92);
+  --line            : rgba(238, 232, 225, 0.16);
+
+  --shadow-1        : 0.25rem 0.25rem 0.0rem rgba(0, 0, 0, 0.45);
+  --shadow-2        : 0.35rem 0.35rem 0.0rem rgba(0, 0, 0, 0.38);
+
+  --accent-ribbon   : linear-gradient(90deg,
+                      rgba(220, 92, 92, 0.32),
+                      rgba(220, 158, 92, 0.32),
+                      rgba(220, 206, 92, 0.32),
+                      rgba(92, 170, 120, 0.32),
+                      rgba(92, 130, 220, 0.32),
+                      rgba(150, 92, 210, 0.32));
+}
+
+/* 2) 시스템 다크 자동: data-theme="light"로 강제하지 않았을 때만 */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+
+    --main-bg-color   : #171310;
+    --bg-grid-color   : #231D18;
+    --bg-grid-2-color : rgba(35, 29, 24, 0);
+
+    --text-primary    : #EEE8E1;
+    --text-secondary  : #1F1915;
+    --text-shadow     : #4B3E34;
+
+    --surface         : rgba(31, 25, 21, 0.78);
+    --surface-strong  : rgba(31, 25, 21, 0.92);
+    --line            : rgba(238, 232, 225, 0.16);
+
+    --shadow-1        : 0.25rem 0.25rem 0.0rem rgba(0, 0, 0, 0.45);
+    --shadow-2        : 0.35rem 0.35rem 0.0rem rgba(0, 0, 0, 0.38);
+
+    --accent-ribbon   : linear-gradient(90deg,
+                        rgba(220, 92, 92, 0.32),
+                        rgba(220, 158, 92, 0.32),
+                        rgba(220, 206, 92, 0.32),
+                        rgba(92, 170, 120, 0.32),
+                        rgba(92, 130, 220, 0.32),
+                        rgba(150, 92, 210, 0.32));
+  }
+}

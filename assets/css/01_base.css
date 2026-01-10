@@ -1,0 +1,296 @@
+@import url("./05_fonts.css");
+
+body {
+  background-color       : var(--main-bg-color);
+  font-family: 'Paperozi', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+
+  -webkit-background-size: var(--grid-size) var(--grid-size);
+  -moz-background-size   : var(--grid-size) var(--grid-size);
+  background-size        : var(--grid-size) var(--grid-size);
+
+  background-image:
+    -webkit-linear-gradient(left, var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px),
+    -webkit-linear-gradient(top,  var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px);
+  background-image:
+    -moz-linear-gradient(left, var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px),
+    -moz-linear-gradient(top,  var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px);
+  background-image:
+    -o-linear-gradient(left, var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px),
+    -o-linear-gradient(top,  var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px);
+  background-image:
+    -ms-linear-gradient(left, var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px),
+    -ms-linear-gradient(top,  var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px);
+  background-image:
+    linear-gradient(to right, var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px),
+    linear-gradient(to bottom, var(--bg-grid-color) 1px, var(--bg-grid-2-color) 1px);
+
+  letter-spacing  : 0.03rem;
+  font-weight     : lighter;
+  color           : var(--text-primary);
+
+  margin: 0;
+}
+
+* { box-sizing: border-box; }
+
+::selection { background-color: var(--text-shadow); }
+
+a { color: inherit; }
+
+p { margin: 0 0 1rem 0; }
+
+mark {
+  background-color: var(--text-primary);
+  color           : var(--text-secondary);
+}
+
+h1 {
+  font-weight   : normal;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-shadow   : 0.3rem 0.3rem 0 var(--text-shadow);
+  margin: 0 0 1rem 0;
+}
+
+h2 {
+  font-weight : lighter;
+  border      : solid var(--text-primary);
+  border-width: 0.1rem 0;
+  padding     : 0.1rem 1rem;
+  margin      : 0 0 1rem 0;
+}
+
+h3, h4, h5, h6 {
+  font-weight   : lighter;
+  letter-spacing: 0.1rem;
+  margin: 0 0 0.75rem 0;
+}
+
+blockquote {
+  position: relative;
+  padding : 0.5rem;
+  margin  : 0 0 1rem 0;
+}
+
+blockquote:before {
+  content     : '';
+  position    : absolute;
+  top         : 0;
+  left        : -1.5rem;
+  bottom      : 0;
+  height      : 100%;
+  width       : 0.3rem;
+  border      : solid var(--text-shadow);
+  border-width: 0 0.2rem 0 0.6rem;
+}
+
+kbd {
+  padding         : 2px 4px;
+  font-size       : 90%;
+  color           : var(--text-secondary);
+  background-color: var(--text-primary);
+  border-radius   : 0.2rem;
+  box-shadow      : inset 0 -1px 0 rgba(0, 0, 0, .25);
+  font-weight     : bold;
+}
+
+cite {
+  position    : relative;
+  padding-left: 2rem;
+}
+
+cite:before {
+  content         : '';
+  position        : absolute;
+  width           : 0.7rem;
+  height          : 0.7rem;
+  background-color: var(--text-primary);
+  margin-left     : -1rem;
+  top             : 0.25em;
+}
+
+hr {
+  margin      : 1rem 0;
+  border-top  : solid var(--text-shadow);
+  border-width: 0.1rem 0 0 0;
+  border-left : 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+table { border-collapse: collapse; font-weight: inherit; }
+
+td, th { padding: 0.5rem; }
+
+th {
+  font-weight  : normal;
+  text-align   : left;
+  border-bottom: 0.1rem solid var(--text-primary);
+}
+
+pre {
+  background-color: var(--text-secondary);
+  padding         : 1rem;
+  overflow: auto;
+}
+
+fieldset {
+  padding    : 1rem;
+  padding-top: 0.5rem;
+  border     : 0.1rem solid var(--text-shadow);
+}
+
+legend { padding: 0 0.5rem; }
+
+label {
+  display: inline-block;
+  margin : 0.5rem 0;
+}
+
+textarea,
+input[type=text],
+input[type=password],
+input[type=url],
+input[type=email],
+input[type=tel],
+input[type=search],
+input[type=number],
+input[type=color],
+input[type=date],
+input[type=month],
+input[type=week],
+input[type=datetime],
+input[type=time],
+input[type=datetime-local] {
+  padding           : 0.5rem;
+  font-size         : 1em;
+  border            : none;
+  outline           : none;
+  -webkit-appearance: none;
+  -moz-appearance   : none;
+  appearance        : none;
+  border-radius     : 0;
+  background-color  : var(--text-secondary);
+  color             : inherit;
+  font-family       : inherit;
+  letter-spacing    : inherit;
+  font-weight       : inherit;
+}
+
+select {
+  background        : var(--text-secondary);
+  padding           : 0.5rem;
+  font-size         : 1em;
+  border            : none;
+  outline           : none;
+  -webkit-appearance: none;
+  -moz-appearance   : none;
+  appearance        : none;
+  border-radius     : 0;
+  color             : inherit;
+  font-family       : inherit;
+  letter-spacing    : inherit;
+  font-weight       : inherit;
+}
+
+input:disabled,
+button:disabled,
+.button-disabled {
+  border        : none;
+  outline       : none;
+  border-radius : 0;
+  color         : inherit;
+  font-family   : inherit;
+  letter-spacing: inherit;
+  font-weight   : inherit;
+  cursor        : not-allowed;
+  pointer-events: none;
+  opacity       : 0.5;
+}
+
+/* 기본 버튼 스타일(원본의 버튼 로직을 사이트 공통에 적용) */
+button:not(:disabled),
+.button {
+  padding                    : 0.5rem;
+  font-size                  : 1em;
+  border                     : none;
+  outline                    : none;
+  -webkit-appearance         : none;
+  -moz-appearance            : none;
+  appearance                 : none;
+  border-radius              : 0;
+  background-color           : var(--text-shadow);
+  color                      : inherit;
+  font-family                : inherit;
+  letter-spacing             : inherit;
+  font-weight                : inherit;
+  cursor                     : pointer;
+
+  transition-duration        : 0.2s;
+  transition-property        : color, background-color, box-shadow;
+  position                   : relative;
+  z-index                    : 1;
+}
+
+button:not(:disabled):hover,
+.button:hover {
+  box-shadow: 0.2em 0.2em 0.1em 0 var(--text-shadow);
+}
+
+button:not(:disabled):before,
+.button:before {
+  content    : '';
+  transition : all 0.2s;
+  position   : absolute;
+  top        : 0;
+  bottom     : 0;
+  left       : 0;
+  right      : 0;
+}
+
+button:not(:disabled):after,
+.button:after {
+  content                   : '';
+  transition                : all 0.2s;
+  transition-timing-function: ease-out;
+  position                  : absolute;
+  top                       : 0;
+  bottom                    : 0;
+  left                      : 0;
+  width                     : 0;
+  background-color          : var(--text-primary);
+  z-index                   : -1;
+}
+
+button:not(:disabled):hover,
+.button:hover {
+  background-color: transparent;
+  color           : var(--text-secondary);
+}
+
+button:not(:disabled):hover:before,
+.button:hover:before {
+  top         : -0.2rem;
+  bottom      : -0.2rem;
+  border      : solid var(--text-primary);
+  border-width: 0.1rem 0;
+}
+
+button:not(:disabled):hover:after,
+.button:hover:after {
+  width: 100%;
+}
+
+button:not(:disabled):active,
+.button:active {
+  color: var(--text-primary);
+}
+
+button:not(:disabled):active:after,
+.button:active:after {
+  background-color: var(--text-secondary);
+}
+
+::-webkit-input-placeholder { color: var(--text-shadow); font-weight: lighter; }
+::-moz-placeholder { color: var(--text-shadow); font-weight: lighter; opacity: 1; }
+::-ms-input-placeholder { color: var(--text-shadow); font-weight: lighter; }

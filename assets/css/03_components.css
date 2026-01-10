@@ -1,0 +1,311 @@
+/* 상단 브랜드 */
+.brand {
+  position: relative;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  background-color: var(--text-secondary);
+  border: solid var(--text-shadow);
+  border-width: 0 0.2rem 0.2rem 0;
+}
+
+.brand:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0.35rem;
+  background: var(--accent-ribbon);
+}
+
+/* 내비게이션: 사용자가 준 nav 스타일의 느낌을 유지하되, nth-child flex-grow 규칙은 제거 */
+.nav {
+  position: relative;
+  padding: 0.4rem 1.0rem 0.4rem 1.2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.0rem;
+
+  background-color: var(--text-secondary);
+  border: solid var(--text-shadow);
+  border-width: 0 0.2rem 0.2rem 0;
+}
+
+.nav:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0.35rem;
+  background: var(--accent-ribbon);
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 0.1rem solid transparent;
+}
+
+.nav-link:hover {
+  border-bottom-color: var(--text-primary);
+}
+
+.nav-link.is-active {
+  border-bottom-color: var(--text-primary);
+}
+
+/* 카드 */
+.card {
+  position: relative;
+  background-color: var(--surface-strong);
+  padding: 1rem 1rem 1.25rem 1rem;
+
+  border: solid var(--text-shadow);
+  border-width: 0 0.2rem 0.2rem 0;
+  box-shadow: var(--shadow-1);
+}
+
+.card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0.30rem;
+  background-color: var(--text-primary);
+  opacity: 0.35;
+}
+
+.card p {
+  margin-bottom: 0.75rem;
+}
+
+/* 버튼(앵커용): 원본의 button 효과를 단조롭게 변형 */
+.btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+
+  padding: 0.6rem 0.5rem;
+  background-color: var(--text-shadow);
+  color: var(--text-primary);
+
+  position: relative;
+  z-index: 1;
+
+  transition: color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background-color: var(--text-primary);
+  z-index: -1;
+  transition: width 0.2s ease-out;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--text-secondary);
+  box-shadow: 0.2em 0.2em 0.1em 0 var(--text-shadow);
+}
+
+.btn:hover:after {
+  width: 100%;
+}
+
+.btn:active {
+  color: var(--text-primary);
+}
+
+.btn:active:after {
+  background-color: var(--text-secondary);
+  width: 100%;
+}
+
+.btn-primary {
+  background-image: var(--accent-ribbon);
+  background-size: 100% 100%;
+  color: var(--text-primary);
+}
+
+.btn-primary:after {
+  background-color: var(--text-primary);
+}
+
+/* 보조 링크 */
+.link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  text-underline-offset: 0.25rem;
+}
+
+/* 하단 빠른 링크 */
+.quick-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 1.25rem 0;
+}
+
+.pill {
+  text-decoration: none;
+  padding: 0.55rem 0.75rem;
+  background-color: var(--text-secondary);
+  border: solid var(--text-shadow);
+  border-width: 0 0.2rem 0.2rem 0;
+  box-shadow: var(--shadow-1);
+}
+
+.pill:hover {
+  box-shadow: var(--shadow-2);
+}
+
+/* 헬퍼 */
+.hint { margin: 0; }
+
+/* 소개/본문 */
+.content { margin: 0 0 1rem 0; }
+
+.small {
+  font-size: 0.95rem;
+  color: rgba(69, 65, 56, 0.85);
+}
+
+/* 2열 비교 */
+.diff {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0.75rem 0 0.75rem 0;
+}
+
+@media (min-width: 860px) {
+  .diff { grid-template-columns: 1fr 1fr; }
+}
+
+.diff-col {
+  background-color: var(--surface);
+  padding: 0.75rem;
+  border: 0.1rem solid var(--text-shadow);
+}
+
+/* 문의 연락처 */
+.contact-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.75rem 0 0.75rem 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+
+  background-color: var(--surface);
+  border: 0.1rem solid var(--text-shadow);
+  padding: 0.75rem;
+}
+
+.contact-name { letter-spacing: 0.08rem; }
+.contact-phone { opacity: 0.85; }
+.card-join h2{
+  margin-bottom: 0.75rem;
+}
+
+.join-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 860px){
+  .join-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.join-item{
+  background-color: var(--surface);
+  border: 0.1rem solid var(--text-shadow);
+  padding: 0.75rem;
+}
+
+.join-item h3{
+  margin: 0 0 0.5rem 0;
+  border: none;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: 0.1rem;
+}
+
+.join-item p{
+  margin: 0 0 0.75rem 0;
+  opacity: 0.9;
+}
+
+/* join-footer를 그리드 전체 폭으로 */
+.join-footer{
+  grid-column: 1 / -1;     /* .grid 내부에 있을 때 전체 폭 */
+  width: 100%;
+}
+
+/* 링크 영역을 패널처럼 보이게(선택: 깔끔한 박스) */
+.join-footer{
+  background-color: var(--surface-strong);
+  border: solid var(--text-shadow);
+  border-width: 0 0.2rem 0.2rem 0;
+  box-shadow: var(--shadow-2);
+  padding: 0 0.7rem;
+}
+
+/* 토글 대상 박스 */
+.info-box{
+  margin-top: 0.75rem;
+
+  background-color: var(--surface);
+  border: 0.1rem solid var(--text-shadow);
+  box-shadow: var(--shadow-1);
+
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+
+  padding: 0; /* 닫힘: 패딩 없음 */
+  transition: max-height 240ms ease, opacity 180ms ease, padding 240ms ease;
+}
+
+.info-box.is-open{
+  max-height: 1200px;
+  opacity: 1;
+  margin-bottom: 0.75rem;
+  padding: 0.9rem; /* 열림: 패딩 보이게 */
+}
+
+
+.info-box p{
+  margin: 0 0 0.75rem 0;
+}
+
+.info-box p:last-child{
+  margin-bottom: 0;
+}
+.header-inner{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle{
+  margin-left: auto;   /* 오른쪽 끝으로 밀기 */
+  padding: 0.45rem 0.6rem;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}

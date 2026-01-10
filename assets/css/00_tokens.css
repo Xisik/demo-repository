@@ -1,0 +1,33 @@
+:root {
+  color-scheme: light;
+  /* 배경만 따뜻한 갈색 유지 */
+  --main-bg-color   : #E7D7C3;
+  --bg-grid-color   : #D7C6B1;
+  --bg-grid-2-color : rgba(215, 198, 177, 0);
+
+  /* 나머지 요소(텍스트/패널)는 갈색을 빼고 뉴트럴로 */
+  --text-primary    : #2E2A26;   /* 진한 웜 그레이(브라운 아님) */
+  --text-secondary  : #F2F2F0;   /* 중립 오프화이트 */
+  --text-shadow     : #B7B0A8;   /* 중립 그레이-베이지(과한 갈색 제거) */
+
+  /* 카드/패널 표면도 뉴트럴로 */
+  --surface         : rgba(242, 242, 240, 0.78);
+  --surface-strong  : rgba(242, 242, 240, 0.94);
+  --line            : rgba(46, 42, 38, 0.22);
+
+  /* 그림자도 뉴트럴 계열로 톤다운 */
+  --shadow-1        : 0.25rem 0.25rem 0.0rem rgba(183, 176, 168, 0.55);
+  --shadow-2        : 0.35rem 0.35rem 0.0rem rgba(183, 176, 168, 0.45);
+
+  --grid-size       : 0.30rem;
+  --container-max   : 1100px;
+
+  /* 리본은 유지하되 알파를 더 낮춰서 전체 톤에 과하게 섞이지 않게 */
+  --accent-ribbon   : linear-gradient(90deg,
+                      rgba(186, 74, 74, 0.28),
+                      rgba(186, 132, 74, 0.28),
+                      rgba(186, 176, 74, 0.28),
+                      rgba(74, 132, 92, 0.28),
+                      rgba(74, 112, 186, 0.28),
+                      rgba(128, 74, 176, 0.28));
+}

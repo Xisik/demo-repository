@@ -1,0 +1,73 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 50;
+}
+
+.modal.is-open { display: block; }
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(69, 65, 56, 0.35);
+}
+
+.modal-dialog {
+  position: relative;
+  width: min(860px, calc(100% - 2rem));
+  margin: 6rem auto 2rem auto;
+
+  background-color: var(--surface-strong);
+  border: solid var(--text-shadow);
+  border-width: 0 0.2rem 0.2rem 0;
+  box-shadow: var(--shadow-2);
+}
+
+.modal-dialog:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0.35rem;
+  background: var(--accent-ribbon);
+}
+
+.modal-header,
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 0.9rem 1rem;
+  background-color: var(--text-secondary);
+  border-bottom: 0.1rem solid var(--text-shadow);
+}
+
+.modal-footer {
+  border-top: 0.1rem solid var(--text-shadow);
+  border-bottom: none;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 1rem;
+}
+
+.icon-btn {
+  width: 2.2rem;
+  height: 2.2rem;
+  background-color: var(--text-shadow);
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.icon-btn:hover {
+  box-shadow: 0.2em 0.2em 0.1em 0 var(--text-shadow);
+}

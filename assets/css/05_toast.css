@@ -1,0 +1,21 @@
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+
+  background-color: var(--text-secondary);
+  color: var(--text-primary);
+
+  border: solid var(--text-shadow);
+  border-width: 0 0.2rem 0.2rem 0;
+
+  padding: 0.6rem 0.8rem;
+  box-shadow: var(--shadow-2);
+
+  max-width: min(680px, calc(100% - 2rem));
+  display: none;
+  z-index: 60;
+}
+
+.toast.is-show { display: block; }

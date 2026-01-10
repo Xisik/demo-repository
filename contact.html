@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>빛청모 | 문의하기</title>
+
+  <link rel="icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./assets/css/00_tokens.dark.css" media="(prefers-color-scheme: dark)" />
+  <link rel="stylesheet" href="./assets/css/00_tokens.css" />
+  <link rel="stylesheet" href="./assets/css/01_base.css" />
+  <link rel="stylesheet" href="./assets/css/02_layout.css" />
+  <link rel="stylesheet" href="./assets/css/03_components.css" />
+  <link rel="stylesheet" href="./assets/css/04_modal.css" />
+  <link rel="stylesheet" href="./assets/css/05_toast.css" />
+</head>
+<body>
+  <header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./index.html" aria-label="홈으로"><img src="./assets/img/logo.jpg" alt="빛청모 로고"></a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="nav-link" href="./index.html">홈</a>
+      <a class="nav-link" href="./about.html">단체 소개</a>
+      <a class="nav-link" href="./contact.html">문의하기</a>
+    </nav>
+
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      다크 모드
+    </button>
+  </div>
+</header>
+
+
+  <main class="container">
+    <section class="page-header">
+      <h1>문의하기</h1>
+      <p>긴급한 사항은 아래 임원 전화번호로 문의주세요!</p>
+    </section>
+
+    <section class="card content">
+      <h2>연락처</h2>
+
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="contact-name">이메일</div>
+          <div class="contact-phone">jenaon3@gmail.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-name">대표 박서영</div>
+          <div class="contact-phone">010-4930-5488</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-name">부대표 금강</div>
+          <div class="contact-phone">010-3008-6245</div>
+        </div>
+      </div>
+
+      <hr />
+  </main>
+
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 빛청모</div>
+      <a href="./index.html">홈</a>
+    </div>
+  </footer>
+
+  <script src="./assets/js/00_dom.js"></script>
+  <script src="./assets/js/10_toast.js"></script>
+  <script src="./assets/js/20_modal.js"></script>
+  <script src="./assets/js/99_main.js"></script>
+  <script src="./assets/js/40_theme.js"></script>
+</body>
+</html>
