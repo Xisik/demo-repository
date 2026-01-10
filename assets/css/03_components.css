@@ -18,13 +18,22 @@
   background: var(--accent-ribbon);
 }
 
+
+/* 공간이 부족한 구간에서 세로 정렬 */
+@media (max-width: 640px){
+  .nav{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
 /* 내비게이션: 사용자가 준 nav 스타일의 느낌을 유지하되, nth-child flex-grow 규칙은 제거 */
 .nav {
   position: relative;
   padding: 0.4rem 1.0rem 0.4rem 1.2rem;
   display: flex;
   flex-direction: row;
-  gap: 4.0rem;
+  gap: 2.0rem;
 
   background-color: var(--text-secondary);
   border: solid var(--text-shadow);
