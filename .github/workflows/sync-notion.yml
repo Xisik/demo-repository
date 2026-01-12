@@ -7,7 +7,7 @@ on:
   # 수동 실행
   workflow_dispatch:
   # main 브랜치에 푸시 시 (선택적)
-  push:
+  push: 
     branches:
       - main
       - feed  # 현재 브랜치도 포함
