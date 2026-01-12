@@ -1,3 +1,8 @@
+.logo {
+  margin-left: 10px;
+  width: 30px;
+}
+
 /* 상단 브랜드 */
 .brand {
   position: relative;
@@ -30,14 +35,10 @@
 /* 내비게이션: 사용자가 준 nav 스타일의 느낌을 유지하되, nth-child flex-grow 규칙은 제거 */
 .nav {
   position: relative;
-  padding: 0.4rem 1.0rem 0.4rem 1.2rem;
+  padding: 0.2rem 1.0rem 0.2rem 1.2rem;
   display: flex;
   flex-direction: row;
   gap: 2.0rem;
-
-  background-color: var(--text-secondary);
-  border: solid var(--text-shadow);
-  border-width: 0 0.2rem 0.2rem 0;
 }
 
 .nav:before {
@@ -47,7 +48,6 @@
   left: 0;
   bottom: 0;
   width: 0.35rem;
-  background: var(--accent-ribbon);
 }
 
 .nav-link {
