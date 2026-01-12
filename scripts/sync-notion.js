@@ -7,7 +7,6 @@
  * 
  * GitHub Actions에서 실행되어 노션 데이터를 가져와 JSON 파일로 저장합니다.
  */
-console.log("RUNNING FILE:", __filename);
 
 const fs = require('fs');
 const path = require('path');
