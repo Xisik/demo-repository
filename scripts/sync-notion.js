@@ -98,7 +98,6 @@ async function fetchNotionData() {
     console.log(`Querying database (ID length: ${cleanDatabaseId.length}): ${cleanDatabaseId.substring(0, 8)}...`);
     
     // Notion SDK를 사용한 안전한 호출
-    const notion = new Client({ auth: NOTION_API_KEY });
     const allPages = [];
     let hasMore = true;
     let startCursor = null;
