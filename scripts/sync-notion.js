@@ -48,14 +48,27 @@ async function fetchNotionData() {
     const pages = await client.queryDatabase(NOTION_DATABASE_ID);
     console.log(`Found ${pages.length} pages in database`);
     
+    if (pages.length === 0) {
+      console.log('WARNING: No pages found in database. Please check:');
+      console.log('  1. Notion Integration is connected to the database');
+      console.log('  2. Database has at least one page');
+      console.log('  3. Database ID is correct');
+    }
+    
     // 각 페이지를 활동 데이터로 변환
     const activities = [];
     
     for (const page of pages) {
       try {
+        // 페이지 속성 디버깅 (첫 번째 페이지만)
+        if (pages.indexOf(page) === 0 && pages.length > 0) {
+          console.log(`\nDEBUG: First page properties:`, Object.keys(page.properties || {}));
+        }
+        
         // 페이지 블록 가져오기 (본문 콘텐츠)
         console.log(`Fetching blocks for page: ${page.id.substring(0, 8)}...`);
         const blocks = await client.getPageBlocks(page.id);
+        console.log(`  Found ${blocks.length} blocks`);
         
         // 페이지를 활동 데이터로 변환
         const activity = transformNotionPage(page, blocks);
@@ -65,9 +78,14 @@ async function fetchNotionData() {
           console.log(`✓ Transformed: ${activity.title}`);
         } else {
           console.log(`✗ Skipped page ${page.id.substring(0, 8)}: missing required fields`);
+          // 디버깅: 속성 정보 출력
+          if (page.properties) {
+            console.log(`  Available properties: ${Object.keys(page.properties).join(', ')}`);
+          }
         }
       } catch (error) {
         console.error(`ERROR: Failed to process page ${page.id.substring(0, 8)}:`, error.message);
+        console.error(`  Stack: ${error.stack}`);
         // 개별 페이지 오류는 건너뛰고 계속 진행
       }
     }

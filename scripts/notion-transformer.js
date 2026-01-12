@@ -226,7 +226,10 @@ function transformNotionPage(page, blocks = []) {
 
   // 필수 필드 검증
   if (!title || !date) {
-    console.warn(`Skipping page ${page.id}: missing required fields (title: ${!!title}, date: ${!!date})`);
+    console.warn(`Skipping page ${page.id.substring(0, 8)}: missing required fields`);
+    console.warn(`  - Title: ${title || 'MISSING'} (looking for: 제목, Title, title)`);
+    console.warn(`  - Date: ${date ? date.toISOString() : 'MISSING'} (looking for: 날짜, Date, date)`);
+    console.warn(`  - Available properties: ${Object.keys(properties).join(', ')}`);
     return null;
   }
 
