@@ -62,7 +62,26 @@ async function fetchNotionData() {
       try {
         // 페이지 속성 디버깅 (첫 번째 페이지만)
         if (pages.indexOf(page) === 0 && pages.length > 0) {
-          console.log(`\nDEBUG: First page properties:`, Object.keys(page.properties || {}));
+          console.log(`\n=== DEBUG: First page properties ===`);
+          const propKeys = Object.keys(page.properties || {});
+          console.log(`Property names (${propKeys.length}):`, propKeys);
+          console.log(`Property details:`);
+          propKeys.forEach(key => {
+            const prop = page.properties[key];
+            console.log(`  - "${key}": type=${prop.type || 'unknown'}`);
+            if (prop.type === 'title' && prop.title) {
+              console.log(`    value: "${prop.title.map(t => t.plain_text).join('')}"`);
+            } else if (prop.type === 'date' && prop.date) {
+              console.log(`    value: ${prop.date.start || 'null'}`);
+            } else if (prop.type === 'rich_text' && prop.rich_text) {
+              console.log(`    value: "${prop.rich_text.map(t => t.plain_text).join('')}"`);
+            } else if (prop.type === 'status' && prop.status) {
+              console.log(`    value: "${prop.status.name}"`);
+            } else if (prop.type === 'select' && prop.select) {
+              console.log(`    value: "${prop.select.name}"`);
+            }
+          });
+          console.log(`=====================================\n`);
         }
         
         // 페이지 블록 가져오기 (본문 콘텐츠)

@@ -256,15 +256,31 @@ function transformNotionPage(page, blocks = []) {
 
   // 공개 여부 (기본값: true)
   // Checkbox 또는 Status 타입 모두 지원
-  const publishedProperty = findProperty(properties, ['공개 여부', 'Published', 'published', '공개', '공개여부', 'Public', 'public']);
+  // "공개여부" (공백 없음)도 지원
+  const publishedProperty = findProperty(properties, [
+    '공개여부', '공개 여부',  // 공백 있음/없음 모두 지원
+    'Published', 'published', 
+    'Public', 'public'
+  ]);
   let published = true;
   if (publishedProperty) {
     if (publishedProperty.type === 'checkbox') {
       published = publishedProperty.checkbox !== false;
     } else if (publishedProperty.type === 'status') {
-      // Status가 "공개" 또는 "Published"면 true
+      // Status가 "공개" 또는 "Published"면 true, "비공개"면 false
       const statusName = publishedProperty.status?.name || '';
-      published = statusName === '공개' || statusName === 'Published' || statusName === 'published' || statusName === 'Public';
+      const publicValues = ['공개', 'Published', 'published', 'Public', 'public'];
+      const privateValues = ['비공개', 'Private', 'private', 'Unpublished', 'unpublished'];
+      
+      if (publicValues.includes(statusName)) {
+        published = true;
+      } else if (privateValues.includes(statusName)) {
+        published = false;
+      } else {
+        // 알 수 없는 값이면 기본값 true
+        console.warn(`Unknown status value for published: "${statusName}", defaulting to true`);
+        published = true;
+      }
     } else {
       published = true; // 기본값
     }
@@ -284,14 +300,16 @@ function transformNotionPage(page, blocks = []) {
 
   // 필수 필드 검증
   if (!title || !date) {
-    console.warn(`Skipping page ${page.id.substring(0, 8)}: missing required fields`);
-    console.warn(`  - Title: ${title || 'MISSING'}`);
-    console.warn(`  - Date: ${date ? date.toISOString() : 'MISSING'}`);
+    console.warn(`\n⚠️ Skipping page ${page.id.substring(0, 8)}: missing required fields`);
+    console.warn(`  - Title: ${title || 'MISSING'} (property found: ${titleProperty ? 'YES' : 'NO'})`);
+    console.warn(`  - Date: ${date ? date.toISOString() : 'MISSING'} (property found: ${dateProperty ? 'YES' : 'NO'})`);
     console.warn(`  - Available properties: ${Object.keys(properties).join(', ')}`);
     console.warn(`  - Property details:`);
     Object.keys(properties).forEach(key => {
-      console.warn(`    - ${key}: ${properties[key].type || 'unknown'}`);
+      const prop = properties[key];
+      console.warn(`    - "${key}": type=${prop.type || 'unknown'}`);
     });
+    console.warn(``);
     return null;
   }
 
