@@ -218,11 +218,31 @@ function transformNotionPage(page, blocks = []) {
                page.id.replace(/-/g, '').substring(0, 20);
 
   // 공개 여부 (기본값: true)
-  const published = extractCheckbox(properties['공개 여부'] || properties['Published'] || properties['published']) !== false;
+  // Checkbox 또는 Status 타입 모두 지원
+  const publishedProperty = properties['공개 여부'] || properties['Published'] || properties['published'];
+  let published = true;
+  if (publishedProperty) {
+    if (publishedProperty.type === 'checkbox') {
+      published = publishedProperty.checkbox !== false;
+    } else if (publishedProperty.type === 'status') {
+      // Status가 "공개" 또는 "Published"면 true
+      const statusName = publishedProperty.status?.name || '';
+      published = statusName === '공개' || statusName === 'Published' || statusName === 'published';
+    } else {
+      published = true; // 기본값
+    }
+  }
 
   // 선택적 필드
   const category = extractSelect(properties['카테고리'] || properties['Category'] || properties['category']);
-  const image = extractFileUrl(properties['이미지'] || properties['Image'] || properties['image']);
+  const image = extractFileUrl(
+    properties['이미지'] || 
+    properties['Image'] || 
+    properties['image'] ||
+    properties['파일과 미디어'] ||
+    properties['Files'] ||
+    properties['files']
+  );
 
   // 필수 필드 검증
   if (!title || !date) {
