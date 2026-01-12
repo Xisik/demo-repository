@@ -88,14 +88,14 @@ async function fetchNotionData() {
     
     // 디버깅: DB_ID 검증 로그
     console.log('DB_ID length:', cleanDatabaseId.length);
-    console.log('DB_ID raw endsWith:', cleanDatabaseId.slice(-6));
+    console.log('DB_ID ends:', cleanDatabaseId.slice(-6));
     console.log('DB_ID has dots:', cleanDatabaseId.includes('...'));
     
     if (cleanDatabaseId.length !== 32) {
       throw new Error(`Invalid database ID length: expected 32, got ${cleanDatabaseId.length}`);
     }
     
-    console.log(`Querying database (ID length: ${cleanDatabaseId.length}): ${cleanDatabaseId.substring(0, 8)}...`);
+    console.log(`Querying database: ${cleanDatabaseId.substring(0, 8)}...`);
     
     // Notion SDK를 사용한 안전한 호출
     const allPages = [];
@@ -197,22 +197,14 @@ async function fetchNotionData() {
     
   } catch (error) {
     console.error('ERROR: Failed to fetch Notion data:', error.message);
-    
-    // 폴백: 기존 데이터 파일이 있으면 사용
-    const dataPath = path.join(__dirname, '..', 'data', 'activities.json');
-    if (fs.existsSync(dataPath)) {
-      try {
-        const existingData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-        console.log(`WARNING: Using existing data file with ${existingData.length || 0} activities as fallback`);
-        return existingData;
-      } catch (fallbackError) {
-        console.error('ERROR: Failed to read fallback data file:', fallbackError.message);
-      }
+    if (error.body) {
+      console.error('Error body:', JSON.stringify(error.body, null, 2));
     }
-    
-    // 데이터가 없으면 빈 배열 반환
-    console.log('WARNING: Returning empty array due to errors');
-    return [];
+    if (error.stack) {
+      console.error('Stack:', error.stack);
+    }
+    // 에러 발생 시 재throw하여 main에서 process.exit(1) 처리
+    throw error;
   }
 }
 
@@ -245,10 +237,16 @@ function saveActivitiesData(activities) {
 async function main() {
   try {
     console.log('Starting Notion sync...');
-    console.log(`NOTION_DATABASE_ID: ${NOTION_DATABASE_ID.substring(0, 8)}...`);
     
     // 노션에서 데이터 가져오기
     const activities = await fetchNotionData();
+    
+    // 데이터가 없으면 실패 처리 (빈 파일 커밋 방지)
+    if (!activities || activities.length === 0) {
+      console.error('ERROR: No activities found. Sync failed.');
+      console.error('This prevents committing an empty file.');
+      process.exit(1);
+    }
     
     // JSON 파일로 저장
     saveActivitiesData(activities);
@@ -256,7 +254,13 @@ async function main() {
     console.log('Notion sync completed successfully');
   } catch (error) {
     console.error('ERROR: Notion sync failed:', error.message);
-    console.error(error.stack);
+    if (error.body) {
+      console.error('Error body:', JSON.stringify(error.body, null, 2));
+    }
+    if (error.stack) {
+      console.error('Stack:', error.stack);
+    }
+    // 실패 시 process.exit(1)로 워크플로우 실패 처리 (빈 파일 커밋 방지)
     process.exit(1);
   }
 }

@@ -50,7 +50,6 @@ jobs:
 
       - name: Pull latest changes
         run: |
-          git fetch origin "${GITHUB_REF_NAME}"
           git pull --rebase origin "${GITHUB_REF_NAME}" || echo "No remote changes or rebase failed"
 
       - name: Commit and push if changed
@@ -58,15 +57,7 @@ jobs:
           git add data/activities.json || true
           if ! git diff --staged --quiet; then
             git commit -m "chore: sync activities from Notion [skip ci]"
-            # 일반 push 시도
-            if ! git push origin HEAD:"${GITHUB_REF_NAME}"; then
-              echo "Normal push failed, trying force-with-lease..."
-              # 안전한 강제 푸시 (누가 먼저 푸시했는지 체크)
-              git push --force-with-lease origin HEAD:"${GITHUB_REF_NAME}" || {
-                echo "Push failed even with force-with-lease"
-                exit 1
-              }
-            fi
+            git push origin HEAD:"${GITHUB_REF_NAME}"
             echo "Successfully pushed changes"
           else
             echo "No changes to commit"
