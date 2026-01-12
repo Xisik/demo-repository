@@ -17,30 +17,37 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="container header-inner">
-    <div class="brand header-inner">
-      <a href="./index.html" aria-label="홈으로"><img class="logo" src="./assets/img/logo.jpg" alt="빛청모"></a>
+  <div class="container">
+    <div class="header-bar">
+      <a class="brand-link" href="./index.html" aria-label="홈으로">
+        <img class="logo" src="./assets/img/logo.jpg" alt="빛청모">
+      </a>
 
       <nav class="nav" id="siteNav" aria-label="주요 메뉴">
         <a class="nav-link" href="./index.html">홈</a>
         <a class="nav-link" href="./about.html">단체 소개</a>
         <a class="nav-link" href="./contact.html">문의하기</a>
       </nav>
-    </div>
 
-    <div class="header-actions">
-      <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">다크 모드</button>
+      <div class="header-actions">
+        <button
+          type="button"
+          class="menu-toggle"
+          data-nav-toggle
+          aria-controls="siteNav"
+          aria-expanded="false"
+        >MENU</button>
 
-      <button
-        type="button"
-        class="menu-toggle"
-        data-nav-toggle
-        aria-controls="siteNav"
-        aria-expanded="false"
-      >MENU</button>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+          다크 모드
+        </button>
+      </div>
     </div>
   </div>
 </header>
+
+
+
 
   <main class="container">
     <section class="page-header">

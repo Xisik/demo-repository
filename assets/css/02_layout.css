@@ -1,72 +1,186 @@
-.container {
-  width: min(var(--container-max), calc(100% - 2rem));
+/* assets/css/02_layout.css
+   Layout primitives: container, header/footer layout, grid layout, page spacing.
+   Component visuals are in 03_components.css
+*/
+
+.container{
+  width : min(var(--container-max), calc(100% - 2rem));
   margin: 0 auto;
 }
 
-.site-header {
+/* =========================
+   Header
+========================= */
+.site-header{
   position: sticky;
-  top: 0;
-  z-index: 20;
-
-  margin: 1rem 0 1.25rem 0;
+  top     : 0;
+  z-index : 20;
+  margin  : 1rem 0 1.25rem 0;
 }
 
-.site-header .header-inner {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
+.header-bar{
+  display        : flex;
+  align-items    : center;
+  gap            : 0rem 1rem;
 }
 
+/* 우측 버튼 묶음은 항상 오른쪽 끝 */
 .header-actions{
   margin-left: auto;
-  display: flex;
+  display    : flex;
   align-items: center;
-  gap: 0.5rem;
+  gap        : 0.5rem;
 }
 
-.hero {
-  margin-bottom: 1rem;
+/* 데스크톱: MENU는 무조건 숨김(전역 버튼 display를 이김) */
+button.menu-toggle{
+  display: none;
 }
 
-.page-header {
-  margin-bottom: 1rem;
+/* 모바일: 헤더 줄바꿈 + nav 토글 */
+@media (max-width: 640px){
+  .header-bar{
+    flex-wrap  : wrap;
+    align-items: flex-start;
+  }
+
+  /* 모바일에서만 MENU 표시(다크 모드 왼쪽은 HTML 순서로 이미 보장) */
+  button.menu-toggle{
+    display: inline-flex;
+  }
+
+  /* nav는 다음 줄로 내리고 기본 닫힘(패딩 0으로 여백 제거) */
+  .nav{
+    flex-basis: 100%;
+    width     : 100%;
+    order     : 3;
+
+    display        : flex;
+    flex-direction : column;
+    align-items    : flex-start;
+    gap            : 0.35rem;
+
+    overflow       : hidden;
+    max-height     : 0;
+    opacity        : 0;
+
+    padding        : 0;      /* 닫힘: 여백 0 */
+    margin         : 0;
+
+    transition: max-height 220ms ease, opacity 160ms ease, padding 220ms ease;
+  }
+
+  .nav.is-open{
+    max-height: 420px;
+    opacity   : 1;
+    padding   : 0.6rem 0 0 0; /* 열림: 위쪽만 살짝 */
+  }
 }
 
-.grid {
-  display: grid;
+/* 데스크톱에서는 nav가 항상 펼쳐진 상태 */
+@media (min-width: 641px){
+  .nav{
+    max-height: none;
+    opacity   : 1;
+    overflow  : visible;
+  }
+}
+
+
+/* =========================
+   Page sections
+========================= */
+.hero{ margin-bottom: 1rem; }
+.page-header{ margin-bottom: 1rem; }
+
+/* =========================
+   Main grid / cards
+========================= */
+.grid{
+  display              : grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 1rem 0 1.25rem 0;
+  gap                  : 1rem;
+  margin               : 1rem 0 1.25rem 0;
 }
 
-/* 12열 스팬 규칙 제거(핵심) */
 .card{
   grid-column: auto;
 }
 
 @media (min-width: 720px){
-  .grid{ grid-template-columns: repeat(3, 1fr); } /* 태블릿 2열 */
+  .grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (min-width: 980px){
-  .grid{ grid-template-columns: repeat(3, 1fr); } /* 데스크탑 4열 */
+  .grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.site-footer {
+/* =========================
+   Footer
+========================= */
+.site-footer{
   margin: 1.25rem 0 1rem 0;
 }
 
-.footer-inner {
-  display: flex;
+.footer-inner{
+  display        : flex;
   justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap            : 1rem;
+  flex-wrap      : wrap;
 }
 
+/* =========================
+   Mobile: MENU toggle nav
+========================= */
 @media (max-width: 640px){
   .site-header .header-inner{
-    flex-wrap: wrap;
+    flex-wrap  : wrap;
     align-items: flex-start;
+  }
+
+  /* 모바일에서만 MENU 버튼 표시(다크 모드 왼쪽은 HTML 순서로 해결) */
+  .menu-toggle{
+    display: inline-block;
+  }
+
+  /* brand-shell 내부에서 로고 아래로 nav가 내려갈 수 있도록 */
+  .brand-shell{
+    flex-wrap  : wrap;
+    align-items: center;
+    gap        : 0.6rem;
+  }
+
+  .nav{
+    flex-basis : 100%;
+    width      : 100%;
+
+    flex-direction: column;
+    align-items   : flex-start;
+    gap           : 0.35rem;
+
+    overflow   : hidden;
+    max-height : 0;
+    opacity    : 0;
+
+    transition : max-height 220ms ease, opacity 160ms ease;
+  }
+
+  .nav.is-open{
+    max-height: 400px;
+    opacity   : 1;
+    margin-top: 0.6rem;
+  }
+}
+
+/* 데스크톱에서는 nav가 항상 펼쳐져야 함(모바일 토글 영향 제거) */
+@media (min-width: 641px){
+  .nav{
+    max-height: none;
+    opacity   : 1;
+    overflow  : visible;
   }
 }

@@ -1,386 +1,304 @@
-.logo {
-  margin-left: 10px;
-  width: 40px;
-}
+/* assets/css/03_components.css
+   Components and visuals: header bar/panel, nav links, cards, buttons (anchor),
+   join blocks, info-box toggle, pills, contact list, etc.
+*/
 
-/* 상단 브랜드 */
-.brand {
-  position: relative;
-  text-decoration: none;
-  padding: 0.3rem 0.6rem;
+/* =========================
+   Header (logo + nav + actions) visuals
+========================= */
+.header-bar{
+  position        : relative;
+
   background-color: var(--text-secondary);
-  border: solid var(--text-shadow);
-  border-width: 0 0.2rem 0.2rem 0;
+  border          : solid var(--text-shadow);
+  border-width    : 0 0.2rem 0.2rem 0;
+  box-shadow      : var(--shadow-2);
+
+  padding         : 0.35rem 0.75rem 0.35rem 0.75rem;
 }
 
-.brand:before {
-  content: '';
+.header-bar::before{
+  content : '';
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 0.35rem;
+  top     : 0;
+  left    : 0;
+  bottom  : 0;
+
+  width   : 0.35rem;
   background: var(--accent-ribbon);
 }
 
-
-/* 공간이 부족한 구간에서 세로 정렬 */
-@media (max-width: 640px){
-  .nav{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-  }
-}
-/* 내비게이션: 사용자가 준 nav 스타일의 느낌을 유지하되, nth-child flex-grow 규칙은 제거 */
-.nav {
-  position: relative;
-  padding: 0.2rem 1.0rem 0.2rem 1.2rem;
-  display: flex;
-  flex-direction: row;
-  gap: 2.0rem;
-}
-
-.nav:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 0.35rem;
-}
-
-.nav-link {
+.brand-link{
+  display        : inline-flex;
+  align-items    : center;
   text-decoration: none;
-  padding: 0.35rem 0.5rem;
-  border-bottom: 0.1rem solid transparent;
+  padding-left   : 0.45rem;
 }
 
-.nav-link:hover {
+.logo{
+  width     : 40px;
+  height    : 40px;
+  object-fit: cover;
+  display   : block;
+
+  border    : 0.1rem solid var(--text-shadow);
+}
+
+/* Nav visuals (layout behavior is in 02_layout.css) */
+.nav{
+  padding: 0;
+  margin : 0;
+}
+
+.nav-link{
+  text-decoration: none;
+  padding        : 0.35rem 0.45rem;
+  border-bottom  : 0.1rem solid transparent;
+}
+
+.nav-link:hover{
   border-bottom-color: var(--text-primary);
 }
 
-.nav-link.is-active {
+.nav-link.is-active{
   border-bottom-color: var(--text-primary);
 }
 
-/* 카드 */
-.card {
-  position: relative;
+/* =========================
+   Card
+========================= */
+.card{
+  position        : relative;
   background-color: var(--surface-strong);
-  padding: 1rem 1rem 1.25rem 1rem;
+  padding         : 1rem 1rem 1.25rem 1rem;
 
-  border: solid var(--text-shadow);
-  border-width: 0 0.2rem 0.2rem 0;
-  box-shadow: var(--shadow-1);
+  border          : solid var(--text-shadow);
+  border-width    : 0 0.2rem 0.2rem 0;
+  box-shadow      : var(--shadow-1);
 }
 
-.card:before {
-  content: '';
+.card::before{
+  content : '';
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 0.30rem;
+  top     : 0;
+  left    : 0;
+  bottom  : 0;
+
+  width   : 0.30rem;
   background-color: var(--text-primary);
-  opacity: 0.35;
+  opacity : 0.35;
 }
 
-.card p {
-  margin-bottom: 0.75rem;
-}
+.card p{ margin-bottom: 0.75rem; }
 
-/* 버튼(앵커용): 원본의 button 효과를 단조롭게 변형 */
-.btn {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
+/* =========================
+   Anchor button (.btn)
+========================= */
+.btn{
+  display         : inline-block;
+  width           : 100%;
+  text-align      : center;
+  text-decoration : none;
 
-  padding: 0.6rem 0.5rem;
+  padding         : 0.6rem 0.5rem;
   background-color: var(--text-shadow);
-  color: var(--text-primary);
+  color           : var(--text-primary);
 
-  position: relative;
-  z-index: 1;
+  position        : relative;
+  z-index         : 1;
 
-  transition: color 0.2s, box-shadow 0.2s, background-color 0.2s;
+  transition      : color 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
-.btn:after {
-  content: '';
+.btn::after{
+  content : '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 0;
+  top     : 0;
+  bottom  : 0;
+  left    : 0;
+
+  width   : 0;
   background-color: var(--text-primary);
-  z-index: -1;
+  z-index : -1;
+
   transition: width 0.2s ease-out;
 }
 
-.btn:hover {
+.btn:hover{
   background-color: transparent;
-  color: var(--text-secondary);
-  box-shadow: 0.2em 0.2em 0.1em 0 var(--text-shadow);
+  color           : var(--text-secondary);
+  box-shadow      : 0.2em 0.2em 0.1em 0 var(--text-shadow);
 }
 
-.btn:hover:after {
-  width: 100%;
-}
+.btn:hover::after{ width: 100%; }
 
-.btn:active {
-  color: var(--text-primary);
-}
+.btn:active{ color: var(--text-primary); }
 
-.btn:active:after {
+.btn:active::after{
   background-color: var(--text-secondary);
-  width: 100%;
+  width           : 100%;
 }
 
-.btn-primary {
+.btn-primary{
   background-image: var(--accent-ribbon);
-  background-size: 100% 100%;
-  color: var(--text-primary);
+  background-size : 100% 100%;
+  color           : var(--text-primary);
 }
 
-.btn-primary:after {
+.btn-primary::after{
   background-color: var(--text-primary);
 }
 
-/* 보조 링크 */
-.link {
+/* =========================
+   Links / quick links / pills
+========================= */
+.link{
   display: inline-block;
   margin-top: 0.75rem;
   text-underline-offset: 0.25rem;
 }
 
-/* 하단 빠른 링크 */
-.quick-links {
-  display: flex;
-  gap: 0.75rem;
+.quick-links{
+  display  : flex;
+  gap      : 0.75rem;
   flex-wrap: wrap;
-  margin: 0.5rem 0 1.25rem 0;
+  margin   : 0.5rem 0 1.25rem 0;
 }
 
-.pill {
-  text-decoration: none;
-  padding: 0.55rem 0.75rem;
+.pill{
+  text-decoration : none;
+  padding         : 0.55rem 0.75rem;
   background-color: var(--text-secondary);
-  border: solid var(--text-shadow);
-  border-width: 0 0.2rem 0.2rem 0;
-  box-shadow: var(--shadow-1);
+
+  border          : solid var(--text-shadow);
+  border-width    : 0 0.2rem 0.2rem 0;
+  box-shadow      : var(--shadow-1);
 }
 
-.pill:hover {
-  box-shadow: var(--shadow-2);
-}
+.pill:hover{ box-shadow: var(--shadow-2); }
 
-/* 헬퍼 */
-.hint { margin: 0; }
+/* =========================
+   Helpers / content
+========================= */
+.hint{ margin: 0; }
+.content{ margin: 0 0 1rem 0; }
 
-/* 소개/본문 */
-.content { margin: 0 0 1rem 0; }
-
-.small {
+.small{
   font-size: 0.95rem;
-  color: rgba(69, 65, 56, 0.85);
+  color    : rgba(69, 65, 56, 0.85);
 }
 
-/* 2열 비교 */
-.diff {
-  display: grid;
+/* =========================
+   Diff grid (optional)
+========================= */
+.diff{
+  display              : grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 0.75rem 0 0.75rem 0;
-}
-
-@media (min-width: 860px) {
-  .diff { grid-template-columns: 1fr 1fr; }
-}
-
-.diff-col {
-  background-color: var(--surface);
-  padding: 0.75rem;
-  border: 0.1rem solid var(--text-shadow);
-}
-
-/* 문의 연락처 */
-.contact-list {
-  display: grid;
-  gap: 0.75rem;
-  margin: 0.75rem 0 0.75rem 0;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-
-  background-color: var(--surface);
-  border: 0.1rem solid var(--text-shadow);
-  padding: 0.75rem;
-}
-
-.contact-name { letter-spacing: 0.08rem; }
-.contact-phone { opacity: 0.85; }
-.card-join h2{
-  margin-bottom: 0.75rem;
-}
-
-.join-grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
+  gap                  : 1rem;
+  margin               : 0.75rem 0 0.75rem 0;
 }
 
 @media (min-width: 860px){
-  .join-grid{
-    grid-template-columns: 1fr 1fr;
-  }
+  .diff{ grid-template-columns: 1fr 1fr; }
+}
+
+.diff-col{
+  background-color: var(--surface);
+  padding         : 0.75rem;
+  border          : 0.1rem solid var(--text-shadow);
+}
+
+/* =========================
+   Contact list
+========================= */
+.contact-list{
+  display: grid;
+  gap    : 0.75rem;
+  margin : 0.75rem 0 0.75rem 0;
+}
+
+.contact-item{
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+  gap            : 0.75rem;
+
+  background-color: var(--surface);
+  border          : 0.1rem solid var(--text-shadow);
+  padding         : 0.75rem;
+}
+
+.contact-name{ letter-spacing: 0.08rem; }
+.contact-phone{ opacity: 0.85; }
+
+/* =========================
+   Join section
+========================= */
+.card-join h2{ margin-bottom: 0.75rem; }
+
+.join-grid{
+  display              : grid;
+  grid-template-columns: 1fr;
+  gap                  : 0.75rem;
+}
+
+@media (min-width: 860px){
+  .join-grid{ grid-template-columns: 1fr 1fr; }
 }
 
 .join-item{
   background-color: var(--surface);
-  border: 0.1rem solid var(--text-shadow);
-  padding: 0.75rem;
+  border          : 0.1rem solid var(--text-shadow);
+  padding         : 0.75rem;
 }
 
 .join-item h3{
-  margin: 0 0 0.5rem 0;
-  border: none;
-  padding: 0;
-  text-transform: none;
-  letter-spacing: 0.1rem;
+  margin         : 0 0 0.5rem 0;
+  border         : none;
+  padding        : 0;
+  text-transform : none;
+  letter-spacing : 0.1rem;
 }
 
 .join-item p{
-  margin: 0 0 0.75rem 0;
+  margin : 0 0 0.75rem 0;
   opacity: 0.9;
 }
 
-/* join-footer를 그리드 전체 폭으로 */
+/* join-footer: full width inside grid */
 .join-footer{
-  grid-column: 1 / -1;     /* .grid 내부에 있을 때 전체 폭 */
-  width: 100%;
-}
+  grid-column: 1 / -1;
+  width      : 100%;
 
-/* 링크 영역을 패널처럼 보이게(선택: 깔끔한 박스) */
-.join-footer{
   background-color: var(--surface-strong);
-  border: solid var(--text-shadow);
-  border-width: 0 0.2rem 0.2rem 0;
-  box-shadow: var(--shadow-2);
-  padding: 0 0.7rem;
+  border          : solid var(--text-shadow);
+  border-width    : 0 0.2rem 0.2rem 0;
+  box-shadow      : var(--shadow-2);
+  padding         : 0 0.7rem;
 }
 
-/* 토글 대상 박스 */
+/* info-box: closed has no padding; open has padding */
 .info-box{
-  margin-top: 0.75rem;
+  margin-top      : 0.75rem;
 
   background-color: var(--surface);
-  border: 0.1rem solid var(--text-shadow);
-  box-shadow: var(--shadow-1);
+  border          : 0.1rem solid var(--text-shadow);
+  box-shadow      : var(--shadow-1);
 
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
+  overflow        : hidden;
+  max-height      : 0;
+  opacity         : 0;
 
-  padding: 0; /* 닫힘: 패딩 없음 */
-  transition: max-height 240ms ease, opacity 180ms ease, padding 240ms ease;
+  padding         : 0; /* closed: no padding */
+  transition      : max-height 240ms ease, opacity 180ms ease, padding 240ms ease;
 }
 
 .info-box.is-open{
-  max-height: 1200px;
-  opacity: 1;
+  max-height   : 1200px;
+  opacity      : 1;
   margin-bottom: 0.75rem;
-  padding: 0.9rem; /* 열림: 패딩 보이게 */
+  padding      : 0.9rem; /* open: padding visible */
 }
 
-
-.info-box p{
-  margin: 0 0 0.75rem 0;
-}
-
-.info-box p:last-child{
-  margin-bottom: 0;
-}
-.header-inner{
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.header-actions{
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* 데스크탑에서는 MENU 버튼 숨김 */
-.menu-toggle{
-  display: none;
-  padding: 0.45rem 0.6rem;
-  font-size: 0.95rem;
-  white-space: nowrap;
-}
-/* 기본: 데스크탑에서는 MENU 버튼 숨김 */
-.header-actions .menu-toggle{
-  display: none;
-}
-
-/* 모바일에서만 MENU 버튼 표시 */
-@media (max-width: 640px){
-  .header-actions .menu-toggle{
-    display: inline-block;
-  }
-}
-
-/* 데스크탑(모바일 아님)에서는 nav가 항상 펼쳐진 상태로 고정 */
-@media (min-width: 641px){
-  .nav{
-    max-height: none;
-    opacity: 1;
-    overflow: visible;
-  }
-}
-/* 모바일: 메뉴 접었다가 펼치기 */
-@media (max-width: 640px){
-  .header-inner{
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-
-  /* nav를 한 줄 아래로 내리고, 기본은 닫힘 */
-  .nav{
-    width: 100%;
-    order: 3;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-
-    transition: max-height 220ms ease, opacity 160ms ease;
-  }
-
-  /* 열림 상태 */
-  .nav.is-open{
-    max-height: 400px;
-    opacity: 1;
-    margin-top: 0.75rem;
-  }
-}
-
-.theme-toggle{
-  margin-left: auto;   /* 오른쪽 끝으로 밀기 */
-  padding: 0.45rem 0.6rem;
-  font-size: 0.95rem;
-  white-space: nowrap;
-}
+.info-box p{ margin: 0 0 0.75rem 0; }
+.info-box p:last-child{ margin-bottom: 0; }
