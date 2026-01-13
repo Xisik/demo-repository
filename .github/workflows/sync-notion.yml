@@ -47,19 +47,44 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          
+          # 모든 브랜치 fetch
+          git fetch origin
+          
+          # notion-sync 브랜치가 원격에 있는지 확인
+          if git ls-remote --heads origin notion-sync | grep -q notion-sync; then
+            # 브랜치가 있으면 체크아웃하고 pull
+            git checkout -b notion-sync origin/notion-sync 2>/dev/null || git checkout notion-sync
+            git pull origin notion-sync --no-edit || echo "Pull failed, continuing..."
+          else
+            # 브랜치가 없으면 현재 브랜치에서 새로 생성
+            git checkout -b notion-sync
+          fi
+          
+          # data/activities.json 추가 및 커밋
           git add data/activities.json || true
-          git diff --staged --quiet || git commit -m "chore: sync activities from Notion [skip ci]"
-          # notion-sync 브랜치로만 push하여 충돌 방지
-          git push origin HEAD:notion-sync || echo "No changes to commit"
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: sync activities from Notion [skip ci]"
+            # notion-sync 브랜치로 push
+            git push origin notion-sync || echo "Push to notion-sync failed"
+          else
+            echo "No changes to commit to notion-sync"
+          fi
 
       - name: Sync to main branch
         run: |
-          # main 브랜치 체크아웃
-          git fetch origin main:main || true
-          git checkout main || git checkout -b main
+          # main 브랜치로 체크아웃
+          git checkout main
+          git pull origin main || echo "Pull main failed"
           
           # notion-sync 브랜치에서 data/activities.json 복사
-          git checkout notion-sync -- data/activities.json || echo "File not found in notion-sync branch"
+          if git show origin/notion-sync:data/activities.json > /tmp/activities.json 2>/dev/null; then
+            cp /tmp/activities.json data/activities.json
+            echo "Copied activities.json from notion-sync branch"
+          else
+            echo "File not found in notion-sync branch"
+            exit 0
+          fi
           
           # 변경사항이 있으면 커밋하고 push
           git add data/activities.json || true
