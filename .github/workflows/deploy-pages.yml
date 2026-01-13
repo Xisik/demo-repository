@@ -1,9 +1,8 @@
 name: Deploy Pages
 
 on:
-  workflow_run:
-    workflows: ["Sync Notion Activities"]
-    types: [completed]
+  push:
+    branches: [main]
 
 permissions:
   contents: read
@@ -12,24 +11,27 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false   # ✅ queued로 대기시켜서 '취소'를 막음
+  cancel-in-progress: true
 
 jobs:
-  deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
-      - uses: actions/deploy-pages@v4
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages   # ⭐ 이거 없으면 400 에러
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to Pages
         id: deployment
+        uses: actions/deploy-pages@v4
 
