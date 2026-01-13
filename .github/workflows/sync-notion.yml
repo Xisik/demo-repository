@@ -51,6 +51,11 @@ jobs:
           # 모든 브랜치 fetch
           git fetch origin
           
+          # 현재 변경사항을 stash에 저장 (staged와 unstaged 모두 포함)
+          if ! git diff --quiet data/activities.json 2>/dev/null || ! git diff --cached --quiet data/activities.json 2>/dev/null; then
+            git stash push -u -m "temp activities.json changes" || echo "No changes to stash"
+          fi
+          
           # notion-sync 브랜치가 원격에 있는지 확인
           if git ls-remote --heads origin notion-sync | grep -q notion-sync; then
             # 브랜치가 있으면 체크아웃하고 pull
@@ -60,6 +65,9 @@ jobs:
             # 브랜치가 없으면 현재 브랜치에서 새로 생성
             git checkout -b notion-sync
           fi
+          
+          # stash에서 변경사항 복원
+          git stash pop || echo "No stash to pop"
           
           # data/activities.json 추가 및 커밋
           git add data/activities.json || true
