@@ -178,16 +178,25 @@
    Links / quick links / pills
 ========================= */
 .link{
-  display: inline-block;
+  display: block;  /* inline-block에서 block으로 변경하여 전체 너비 사용 */
+  width: 100%;     /* 전체 너비 사용 */
   margin-top: 0.75rem;
   text-underline-offset: 0.25rem;
+  text-align: center;  /* 텍스트 가운데 정렬 */
 }
 
 .quick-links{
   display  : flex;
   gap      : 0.75rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;  /* 줄바꿈 방지 - pill들이 동일한 너비를 유지하도록 */
   margin   : 0.5rem 0 1.25rem 0;
+}
+
+/* quick-links의 pill들이 join-footer의 link와 동일한 너비를 가지도록 */
+.quick-links .pill{
+  flex: 1;  /* 동일한 너비로 분배 */
+  min-width: 0;  /* flex item이 축소될 수 있도록 */
+  text-align: center;  /* 텍스트 가운데 정렬 */
 }
 
 .pill{
