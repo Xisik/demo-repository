@@ -1,1 +1,24 @@
-[]
+{
+  "_metadata": {
+    "lastUpdated": "2026-01-14T09:15:23.549Z",
+    "syncStatus": "success",
+    "errorMessage": null,
+    "activitiesCount": 1,
+    "version": "1.0"
+  },
+  "activities": [
+    {
+      "title": "테스트입니다.",
+      "date": "2026-01-23T00:00:00.000Z",
+      "summary": "첫 번째 테스트",
+      "body": "테스트테스트",
+      "slug": "2e7324dad96680d58c90",
+      "published": true,
+      "category": "정기모임",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/9f3324da-d966-8150-b555-0003363350a6/8005aad9-8c6d-492d-8476-21898d99ebcb/event.jpg.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466XTB4CMKI%2F20260114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260114T091523Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFEaCXVzLXdlc3QtMiJHMEUCIQD5FYtpgal2aRS7fiWns9rgfljChTgTg%2BQIA2FrP3LDfAIgWD%2B796Vx7y4tuPjDZYapNUIkdplCH%2FI4xNUDd9YN3R8q%2FwMIGhAAGgw2Mzc0MjMxODM4MDUiDEmc5mmR0cO9ujqnDCrcA4DvCYFiCeymRNqi8JJJHa0aWFsjcJnX17zUsoAEwwm%2BiMx24GapIS9G5gw41MsakmHLbvd5IWDp9jSRNqQjzeEH7j4%2BvgM6DFsu9kgQ6tupt2eLNrZiFF1m9KVq%2FHl64gT6pWqdIbQ1CC%2B%2FWwPLJMPJ2yAtdRDkQP0QKzNg3cNW%2B%2BbFhg5vcYj0flQyJl5ExkRI1hu7%2BtYIeRtwN2cWgRMs9vinRe011vNTGeXfz9owxLw5ei8FKgz7cXBZ%2FBNSVJcpPBt9V%2BIa%2FQ0P6XtjV3B67mnVJLmHE3ZZWA%2FUNHskd1lz9aMPozMoctoe8n32pGsAQF%2BLHaizuwbzVWHa5If9ZXTUY%2B8AVcjJDmzMJrThHvx5D16GMuqBbpPHblQcRvkmic8BFpUuHsjARXBYbGI4ZEjioZcyiCwygWBqOl3lQNmnShwAF%2Fj7TbkEqkfUqtfZhOu5zs441qAslPim47wfzR%2FIwUDk1lj7XvddzLsOZbDZpQUunERfNnmsBGfIx%2Fmnf5KgnUk1Gf0ZmEu0d8c%2BrtTlnKOHZr5UDa94x3QqDTvvOyyeSICx%2FdNvFCV7dhtKw%2Bi5Ouh9e7iN6HQb9ZBoxzdonWTOo00475GJyYVcaEp3msGR29PSGaWTMKquncsGOqUBm059xHrqJrn6zFjOL1l8Le9RRik7WhokHhzor40hlSmMSKQXePdA%2FkGpX3NA83RJBzEgzfEKIYwaxBGSn2f2HhrAKb5Iwyj8LMrtK4E4gbuUpqu%2B9QeNO9yisj4F0G8vIv14l9ifvNPnfW2nQHs044Yt6it82xBsSVX9Tq5YGbRTH1SZpMVv%2BzFkjzteAOK4E8PkIJNXmk2ao%2BgpdWuUsuqgleNf&X-Amz-Signature=ba3bfc1490cd02ab4ab955cbf6b32e7056fcd47f8c63819f9fd2c4ba43face4b&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "id": "2e7324da-d966-80d5-8c90-eeb976565113",
+      "created_time": "2026-01-13T16:16:00.000Z",
+      "last_edited_time": "2026-01-14T07:23:00.000Z"
+    }
+  ]
+}
