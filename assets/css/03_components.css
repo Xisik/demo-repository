@@ -56,6 +56,31 @@
   border-bottom  : 0.1rem solid transparent;
 }
 
+/* 모바일: nav-link를 카드처럼 전체 영역 클릭 가능하게 */
+@media (max-width: 640px){
+  .nav-link{
+    display        : block;
+    width          : 100%;
+    text-align     : center;
+    padding        : 0.75rem 1rem;  /* 클릭 영역 넓게 */
+    border         : none;  /* 테두리 제거 */
+    background-color: var(--surface);
+    border-radius  : 0.2rem;
+    transition     : background-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .nav-link:hover,
+  .nav-link:active{
+    background-color: var(--surface-strong);
+    box-shadow      : var(--shadow-1);
+  }
+  
+  .nav-link.is-active{
+    background-color: var(--text-shadow);
+    border-bottom   : none;  /* 테두리 제거 */
+  }
+}
+
 .nav-link:hover{
   border-bottom-color: var(--text-primary);
 }
