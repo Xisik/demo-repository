@@ -429,22 +429,37 @@
 ========================= */
 .card-join h2{ margin-bottom: 0.75rem; }
 
+/* 일반 card의 h2가 join-item 바로 앞에 올 때 회원가입과 동일한 간격 적용 */
+/* h2의 기본 margin-bottom이 1rem이므로, join-item의 margin-top을 음수로 조정하여 효과적으로 간격을 줄임 */
+.card:not(.card-join) > h2 + .join-item{
+  margin-top: -0.25rem; /* h2의 margin-bottom(1rem) - 회원가입 margin-bottom(0.75rem) = 0.25rem 차이를 상쇄 */
+}
+
 .join-grid{
   display              : grid;
   grid-template-columns: 1fr;
   gap                  : 0.75rem;
+  align-items          : stretch; /* 그리드 아이템 높이 맞추기 */
 }
 
 @media (min-width: 860px){
-  .join-grid{ grid-template-columns: 1fr 1fr; }
+  .join-grid{ 
+    grid-template-columns: 1fr 1fr;
+    align-items          : stretch; /* 그리드 아이템 높이 맞추기 */
+  }
 }
 
 .join-item{
   background-color: var(--surface);
   border          : 0.1rem solid var(--text-shadow);
   padding         : 0.75rem;
+  min-height      : 120px; /* 정회원/준회원과 비슷한 높이 유지 */
+  display         : flex;
+  flex-direction  : column;
+  justify-content : space-between;
 }
 
+.join-item h2,
 .join-item h3{
   margin         : 0 0 0.5rem 0;
   border         : none;
