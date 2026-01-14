@@ -23,23 +23,12 @@
     }
   }
 
-  // Story 3.1: 키보드 접근성 - Enter/Space 키로 토글 가능
   $all("[data-toggle]").forEach((a) => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
       const targetId = a.getAttribute("data-toggle");
       if (!targetId) return;
       toggle(a, targetId);
-    });
-
-    // 키보드 이벤트 추가
-    a.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        const targetId = a.getAttribute("data-toggle");
-        if (!targetId) return;
-        toggle(a, targetId);
-      }
     });
   });
 })();

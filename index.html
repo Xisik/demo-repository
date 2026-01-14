@@ -2,8 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <!-- Story 3.2: 모바일 반응형 디자인 - 뷰포트 메타 태그 최적화 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta property="og:image" content="./assets/img/logo.jpg" />
   <title>빛청모 | 메인</title>
 
@@ -32,18 +31,15 @@
       </nav>
 
       <div class="header-actions">
-        <!-- Story 3.3: 스크린 리더 접근성 - 메뉴 토글 버튼 -->
         <button
           type="button"
           class="menu-toggle"
           data-nav-toggle
           aria-controls="siteNav"
           aria-expanded="false"
-          aria-label="메뉴 열기"
         >MENU</button>
 
-        <!-- Story 3.3: 스크린 리더 접근성 - 테마 토글 버튼 -->
-        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="다크 모드로 전환">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
           다크 모드
         </button>
       </div>
@@ -62,20 +58,19 @@
       </p>
     </section>
 
-    <!-- Story 3.3: 스크린 리더 접근성 - 메인 액션 섹션 -->
-    <section class="grid" aria-label="주요 액션">
+    <section class="grid" aria-label="메인 버튼">
       <article class="card">
         <h2>오픈채팅 참여하기</h2>
         <p>카카오톡 채팅방입니다.</p>
         <p>링크를 누르면 연결됩니다.</p>
-        <a class="btn btn-primary" href="https://open.kakao.com/o/gRByFFTg" target="_blank" rel="noopener noreferrer" aria-label="오픈채팅 참여하기, 새 창에서 열림">참여하기</a>
+        <a class="btn btn-primary" href="https://open.kakao.com/o/gRByFFTg" target="_blank" rel="noopener noreferrer">참여하기</a>
       </article>
 
       <article class="card">
         <h2>SNS 팔로우</h2>
         <p>SNS 링크입니다.</p>
         <p>팔로우 부탁드립니다.</p>
-        <a class="btn btn-primary" href="https://linktr.ee/shinelgbtqkr" target="_blank" rel="noopener noreferrer" aria-label="SNS 팔로우, 새 창에서 열림">팔로우</a>
+        <a class="btn btn-primary" href="https://linktr.ee/shinelgbtqkr" target="_blank" rel="noopener noreferrer">팔로우</a>
       </article>
 
       <article class="card card-join">
@@ -85,13 +80,13 @@
             <section class="join-item" aria-label="정회원 가입">
             <h3>정회원</h3>
             <p>정회원 가입</p>
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdIptTfcIdpSzIKZTxlenlAdDixBxK6E1fzwn9n4DcMP-CjRg/viewform" target="_blank" rel="noopener noreferrer" aria-label="정회원 가입하기, 새 창에서 열림">가입하기</a>
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdIptTfcIdpSzIKZTxlenlAdDixBxK6E1fzwn9n4DcMP-CjRg/viewform" target="_blank" rel="noopener noreferrer">가입하기</a>
             </section>
 
             <section class="join-item" aria-label="준회원 가입">
             <h3>준회원</h3>
             <p>준회원 가입</p>
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd4KbaPazGrJ_YhYkkW-y5EQIKL7iQBiplka8N-ojGQRRj3rQ/viewform" target="_blank" rel="noopener noreferrer" aria-label="준회원 가입하기, 새 창에서 열림">가입하기</a>
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd4KbaPazGrJ_YhYkkW-y5EQIKL7iQBiplka8N-ojGQRRj3rQ/viewform" target="_blank" rel="noopener noreferrer">가입하기</a>
             </section>
         </div>
      </article>
@@ -166,11 +161,10 @@
 
   <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- Story 3.3: 스크린 리더 접근성 - 푸터 -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div>© 빛청모</div>
-      <a href="./contact.html" aria-label="문의하기 페이지로 이동">문의하기</a>
+      <a href="./contact.html">문의하기</a>
     </div>
   </footer>
 
@@ -181,6 +175,5 @@
   <script src="./assets/js/99_main.js"></script>
   <script src="./assets/js/40_theme.js"></script>
   <script src="./assets/js/50_mobile_menu.js"></script>
-  <script src="./assets/js/90_keyboard_accessibility.js"></script>
 </body>
 </html>

@@ -6,17 +6,6 @@
 .container{
   width : min(var(--container-max), calc(100% - 2rem));
   margin: 0 auto;
-  
-  /* Story 3.2: 모바일 반응형 디자인 - 320px 너비 대응 */
-  padding: 0 0.5rem;
-}
-
-/* Story 3.2: 매우 작은 화면 (320px) 최적화 */
-@media (max-width: 320px) {
-  .container {
-    width: 100%;
-    padding: 0 0.75rem; /* 좁은 화면에서도 약간의 여백 유지 */
-  }
 }
 
 /* =========================
@@ -53,7 +42,6 @@ button.menu-toggle{
   .header-bar{
     flex-wrap  : wrap;
     align-items: flex-start;
-    gap        : 0.5rem; /* Story 3.2: 작은 화면에서 간격 조정 */
   }
 
   /* 모바일에서만 MENU 표시(다크 모드 왼쪽은 HTML 순서로 이미 보장) */
@@ -89,17 +77,6 @@ button.menu-toggle{
   }
 }
 
-/* Story 3.2: 320px 너비 최적화 */
-@media (max-width: 320px) {
-  .header-bar {
-    gap: 0.25rem; /* 매우 작은 화면에서 간격 축소 */
-  }
-  
-  .nav {
-    gap: 0.25rem; /* 네비게이션 링크 간격 축소 */
-  }
-}
-
 /* 데스크톱에서는 nav가 항상 펼쳐진 상태 */
 @media (min-width: 641px){
   .nav{
@@ -126,28 +103,13 @@ button.menu-toggle{
   margin               : 1rem 0 1.25rem 0;
 }
 
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 간격 조정 */
-@media (max-width: 320px) {
-  .grid {
-    gap: 0.75rem; /* 매우 작은 화면에서 간격 축소 */
-  }
-}
-
 .card{
   grid-column: auto;
 }
 
-/* Story 3.2: 태블릿 레이아웃 (768px 이상) */
-@media (min-width: 768px){
+@media (min-width: 720px){
   .grid{
-    grid-template-columns: repeat(2, 1fr); /* 태블릿에서는 2열 */
-  }
-}
-
-/* Story 3.2: 데스크톱 레이아웃 (1024px 이상) */
-@media (min-width: 1024px){
-  .grid{
-    grid-template-columns: repeat(3, 1fr); /* 데스크톱에서는 3열 */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -169,15 +131,6 @@ button.menu-toggle{
   justify-content: space-between;
   gap            : 1rem;
   flex-wrap      : wrap;
-}
-
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 푸터 조정 */
-@media (max-width: 320px) {
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
 }
 
 /* =========================

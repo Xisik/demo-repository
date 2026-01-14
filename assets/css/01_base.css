@@ -29,20 +29,6 @@ body {
   color           : var(--text-primary);
 
   margin: 0;
-  
-  /* Story 3.2: 모바일 반응형 디자인 - 부드러운 스크롤 */
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  
-  /* Story 3.2: 텍스트 가독성 - 최소 폰트 크기 */
-  font-size: 16px; /* 기본 폰트 크기 (모바일에서 너무 작지 않도록) */
-}
-
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 텍스트 크기 조정 */
-@media (max-width: 320px) {
-  body {
-    font-size: 14px; /* 매우 작은 화면에서도 읽기 가능 */
-  }
 }
 
 * { box-sizing: border-box; }
@@ -51,58 +37,7 @@ body {
 
 a { color: inherit; }
 
-/* Story 3.1: 키보드 접근성 - 포커스 스타일 */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 0.2rem solid var(--text-primary);
-  outline-offset: 0.2rem;
-}
-
-/* 포커스가 보이지 않는 요소는 outline 제거 (마우스 사용 시) */
-a:focus:not(:focus-visible),
-button:focus:not(:focus-visible),
-input:focus:not(:focus-visible),
-select:focus:not(:focus-visible),
-textarea:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* Story 3.1: Skip to content 링크 */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  background: var(--text-primary);
-  color: var(--text-secondary);
-  padding: 1rem;
-  text-decoration: none;
-  z-index: 1000;
-  border: 0.2rem solid var(--text-primary);
-  font-weight: bold;
-}
-
-.skip-link:focus {
-  top: 0;
-  outline: 0.3rem solid var(--text-secondary);
-  outline-offset: 0.2rem;
-}
-
-p { 
-  margin: 0 0 1rem 0; 
-  /* Story 3.2: 모바일 반응형 디자인 - 텍스트 가독성 */
-  line-height: 1.6; /* 읽기 쉬운 줄 간격 */
-}
-
-/* Story 3.2: 작은 화면에서 문단 여백 조정 */
-@media (max-width: 320px) {
-  p {
-    margin: 0 0 0.75rem 0;
-    line-height: 1.5;
-  }
-}
+p { margin: 0 0 1rem 0; }
 
 mark {
   background-color: var(--text-primary);
@@ -115,23 +50,6 @@ h1 {
   letter-spacing: 0.5rem;
   text-shadow   : 0.3rem 0.3rem 0 var(--text-shadow);
   margin: 0 0 1rem 0;
-}
-
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 h1 크기 조정 */
-@media (max-width: 640px) {
-  h1 {
-    font-size: 1.5rem;
-    letter-spacing: 0.3rem;
-    text-shadow: 0.2rem 0.2rem 0 var(--text-shadow);
-  }
-}
-
-@media (max-width: 320px) {
-  h1 {
-    font-size: 1.25rem;
-    letter-spacing: 0.2rem;
-    text-shadow: 0.15rem 0.15rem 0 var(--text-shadow);
-  }
 }
 
 h2 {
@@ -296,9 +214,7 @@ button:disabled,
 /* Base button: centered text + fixed square shape */
 button:not(:disabled),
 .button{
-  /* Story 3.2: 터치 타겟 크기 최소 44x44px 준수 */
-  min-inline-size   : 44px;
-  min-block-size    : 44px;
+  /* 고정 크기(정사각형) */
   inline-size       : 3.0rem;
   block-size        : 3.0rem;
   aspect-ratio      : 1 / 1;

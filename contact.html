@@ -2,8 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <!-- Story 3.2: 모바일 반응형 디자인 - 뷰포트 메타 태그 최적화 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta property="og:image" content="./assets/img/logo.jpg" />
   <title>빛청모 | 문의하기</title>
 
@@ -32,18 +31,15 @@
       </nav>
 
       <div class="header-actions">
-        <!-- Story 3.3: 스크린 리더 접근성 - 메뉴 토글 버튼 -->
         <button
           type="button"
           class="menu-toggle"
           data-nav-toggle
           aria-controls="siteNav"
           aria-expanded="false"
-          aria-label="메뉴 열기"
         >MENU</button>
 
-        <!-- Story 3.3: 스크린 리더 접근성 - 테마 토글 버튼 -->
-        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="다크 모드로 전환">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
           다크 모드
         </button>
       </div>
@@ -64,38 +60,30 @@
     <section class="card content">
       <h2>연락처</h2>
 
-      <!-- Story 3.3: 스크린 리더 접근성 - 연락처 리스트 -->
-      <ul class="contact-list" role="list" aria-label="연락처 목록">
-        <li class="contact-item" role="listitem">
+      <div class="contact-list">
+        <div class="contact-item">
           <div class="contact-name">이메일</div>
-          <div class="contact-phone">
-            <a href="mailto:jenaon3@gmail.com" aria-label="이메일: jenaon3@gmail.com">jenaon3@gmail.com</a>
-          </div>
-        </li>
-        <li class="contact-item" role="listitem">
+          <div class="contact-phone">jenaon3@gmail.com</div>
+        </div>
+        <div class="contact-item">
           <div class="contact-name">대표 박서영</div>
-          <div class="contact-phone">
-            <a href="tel:010-4930-5488" aria-label="대표 박서영 전화번호: 010-4930-5488">010-4930-5488</a>
-          </div>
-        </li>
-        <li class="contact-item" role="listitem">
+          <div class="contact-phone">010-4930-5488</div>
+        </div>
+        <div class="contact-item">
           <div class="contact-name">부대표 금강</div>
-          <div class="contact-phone">
-            <a href="tel:010-3008-6245" aria-label="부대표 금강 전화번호: 010-3008-6245">010-3008-6245</a>
-          </div>
-        </li>
-      </ul>
+          <div class="contact-phone">010-3008-6245</div>
+        </div>
+      </div>
 
       <hr />
   </main>
 
   <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- Story 3.3: 스크린 리더 접근성 - 푸터 -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div>© 빛청모</div>
-      <a href="./index.html" aria-label="홈 페이지로 이동">홈</a>
+      <a href="./index.html">홈</a>
     </div>
   </footer>
 
@@ -106,6 +94,5 @@
   <script src="./assets/js/99_main.js"></script>
   <script src="./assets/js/40_theme.js"></script>
   <script src="./assets/js/50_mobile_menu.js"></script>
-  <script src="./assets/js/90_keyboard_accessibility.js"></script>
 </body>
 </html>

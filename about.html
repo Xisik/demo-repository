@@ -2,8 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <!-- Story 3.2: 모바일 반응형 디자인 - 뷰포트 메타 태그 최적화 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta property="og:image" content="./assets/img/logo.jpg" />
   <title>빛청모 | 단체 소개</title>
 
@@ -32,18 +31,15 @@
       </nav>
 
       <div class="header-actions">
-        <!-- Story 3.3: 스크린 리더 접근성 - 메뉴 토글 버튼 -->
         <button
           type="button"
           class="menu-toggle"
           data-nav-toggle
           aria-controls="siteNav"
           aria-expanded="false"
-          aria-label="메뉴 열기"
         >MENU</button>
 
-        <!-- Story 3.3: 스크린 리더 접근성 - 테마 토글 버튼 -->
-        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="다크 모드로 전환">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
           다크 모드
         </button>
       </div>
@@ -101,20 +97,18 @@
       </ul>
     </section>
 
-    <!-- Story 3.3: 스크린 리더 접근성 - 빠른 이동 링크 -->
-    <nav class="quick-links" aria-label="빠른 이동">
-      <a class="pill" href="./index.html" aria-label="홈 페이지로 이동">홈으로</a>
-      <a class="pill" href="./contact.html" aria-label="문의하기 페이지로 이동">문의하기</a>
-    </nav>
+    <section class="quick-links" aria-label="빠른 이동">
+      <a class="pill" href="./index.html">홈으로</a>
+      <a class="pill" href="./contact.html">문의하기</a>
+    </section>
   </main>
 
   <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- Story 3.3: 스크린 리더 접근성 - 푸터 -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div>© 빛청모</div>
-      <a href="./index.html" aria-label="홈 페이지로 이동">홈</a>
+      <a href="./index.html">홈</a>
     </div>
   </footer>
 
@@ -125,7 +119,6 @@
   <script src="./assets/js/99_main.js"></script>
   <script src="./assets/js/40_theme.js"></script>
   <script src="./assets/js/50_mobile_menu.js"></script>
-  <script src="./assets/js/90_keyboard_accessibility.js"></script>
 
 </body>
 </html>

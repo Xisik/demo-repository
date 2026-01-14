@@ -54,11 +54,6 @@
   text-decoration: none;
   padding        : 0.35rem 0.45rem;
   border-bottom  : 0.1rem solid transparent;
-  
-  /* Story 3.2: 터치 타겟 크기 최소 44x44px 준수 */
-  min-height     : 44px;
-  display        : inline-flex;
-  align-items    : center;
 }
 
 .nav-link:hover{
@@ -66,13 +61,6 @@
 }
 
 .nav-link.is-active{
-  border-bottom-color: var(--text-primary);
-}
-
-/* Story 3.1: 키보드 접근성 - 네비게이션 링크 포커스 */
-.nav-link:focus-visible{
-  outline: 0.2rem solid var(--text-primary);
-  outline-offset: 0.2rem;
   border-bottom-color: var(--text-primary);
 }
 
@@ -87,13 +75,6 @@
   border          : solid var(--text-shadow);
   border-width    : 0 0.2rem 0.2rem 0;
   box-shadow      : var(--shadow-1);
-}
-
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 카드 패딩 조정 */
-@media (max-width: 320px) {
-  .card {
-    padding: 0.75rem 0.75rem 1rem 0.75rem;
-  }
 }
 
 .card::before{
@@ -127,12 +108,6 @@
   z-index         : 1;
 
   transition      : color 0.2s, box-shadow 0.2s, background-color 0.2s;
-  
-  /* Story 3.2: 터치 타겟 크기 최소 44x44px 준수 */
-  min-height      : 44px;
-  display         : inline-flex;
-  align-items     : center;
-  justify-content : center;
 }
 
 .btn::after{
@@ -190,14 +165,6 @@
   margin   : 0.5rem 0 1.25rem 0;
 }
 
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 퀵 링크 조정 */
-@media (max-width: 320px) {
-  .quick-links {
-    gap: 0.5rem;
-    margin: 0.5rem 0 1rem 0;
-  }
-}
-
 .pill{
   text-decoration : none;
   padding         : 0.55rem 0.75rem;
@@ -206,12 +173,6 @@
   border          : solid var(--text-shadow);
   border-width    : 0 0.2rem 0.2rem 0;
   box-shadow      : var(--shadow-1);
-  
-  /* Story 3.2: 터치 타겟 크기 최소 44x44px 준수 */
-  min-height      : 44px;
-  display         : inline-flex;
-  align-items     : center;
-  justify-content : center;
 }
 
 .pill:hover{ box-shadow: var(--shadow-2); }
@@ -234,24 +195,9 @@
   margin: 1rem 0 1.25rem 0;
 }
 
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 여백 조정 */
-@media (max-width: 320px) {
-  .activities-container {
-    margin: 0.75rem 0 1rem 0;
-  }
-}
-
 .activity-card{
   margin-bottom: 1rem;
   transition: box-shadow 0.2s;
-}
-
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 카드 여백 조정 */
-@media (max-width: 320px) {
-  .activity-card {
-    margin-bottom: 0.75rem;
-    padding: 0.75rem; /* 작은 화면에서 패딩 축소 */
-  }
 }
 
 .activity-card:hover{
@@ -268,33 +214,13 @@
   font-weight: normal;
 }
 
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 제목 크기 조정 */
-@media (max-width: 320px) {
-  .activity-title {
-    font-size: 1.1rem;
-  }
-}
-
 .activity-link{
   text-decoration: none;
   color: inherit;
   transition: color 0.2s;
-  
-  /* Story 3.2: 터치 타겟 크기 최소 44x44px 준수 (활동 카드 전체 클릭 가능) */
-  display: block;
-  padding: 0.25rem 0; /* 클릭 영역 확대 */
 }
 
 .activity-link:hover{
-  color: var(--text-primary);
-  text-decoration: underline;
-  text-underline-offset: 0.25rem;
-}
-
-/* Story 3.1: 키보드 접근성 - 활동 링크 포커스 */
-.activity-link:focus-visible{
-  outline: 0.2rem solid var(--text-primary);
-  outline-offset: 0.2rem;
   color: var(--text-primary);
   text-decoration: underline;
   text-underline-offset: 0.25rem;
@@ -355,19 +281,6 @@
   line-height: 1.4;
 }
 
-/* Story 3.2: 모바일 반응형 디자인 - 작은 화면에서 제목 크기 조정 */
-@media (max-width: 640px) {
-  .activity-detail-title {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .activity-detail-title {
-    font-size: 1.25rem;
-  }
-}
-
 .activity-detail-summary{
   font-size: 1.1rem;
   color: var(--text-shadow);
@@ -384,10 +297,6 @@
   height: auto;
   display: block;
   border: 0.1rem solid var(--text-shadow);
-  
-  /* Story 3.2: 모바일 반응형 디자인 - 이미지 최적화 */
-  max-width: 100%;
-  object-fit: contain;
 }
 
 .activity-detail-body{
@@ -499,8 +408,6 @@
   display: grid;
   gap    : 0.75rem;
   margin : 0.75rem 0 0.75rem 0;
-  list-style: none; /* Story 3.3: 스크린 리더 접근성 - ul로 변경했으므로 리스트 스타일 제거 */
-  padding: 0;
 }
 
 .contact-item{

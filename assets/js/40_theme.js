@@ -20,8 +20,6 @@
     if (btn) {
       const isDark = theme === "dark";
       btn.setAttribute("aria-pressed", isDark ? "true" : "false");
-      // Story 3.3: 스크린 리더 접근성 - 테마 상태에 따른 레이블 업데이트
-      btn.setAttribute("aria-label", isDark ? "라이트 모드로 전환" : "다크 모드로 전환");
       // 현재 상태를 토글의 "다음 동작"으로 표기
       btn.textContent = isDark ? "\udb80\udce0" : "\udb80\udcdb";
     }
@@ -41,16 +39,6 @@
       const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
       const next = current === "dark" ? "light" : "dark";
       setTheme(next, true);
-    });
-
-    // Story 3.1: 키보드 접근성 - Enter/Space 키로 토글 가능
-    btn.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
-        const next = current === "dark" ? "light" : "dark";
-        setTheme(next, true);
-      }
     });
   }
 

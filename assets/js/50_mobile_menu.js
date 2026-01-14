@@ -6,8 +6,6 @@
   function setOpen(isOpen) {
     nav.classList.toggle("is-open", isOpen);
     toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    // Story 3.3: 스크린 리더 접근성 - 버튼 레이블 동적 업데이트
-    toggleBtn.setAttribute("aria-label", isOpen ? "메뉴 닫기" : "메뉴 열기");
   }
 
   function toggle() {
@@ -15,14 +13,6 @@
   }
 
   toggleBtn.addEventListener("click", toggle);
-
-  // Story 3.1: 키보드 접근성 - Enter/Space 키로 토글 가능
-  toggleBtn.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      toggle();
-    }
-  });
 
   /* 메뉴 링크 클릭 시 자동 닫기(모바일 UX) */
   nav.addEventListener("click", (e) => {
