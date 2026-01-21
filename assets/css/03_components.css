@@ -444,6 +444,45 @@
   margin : 0.75rem 0 0.75rem 0;
 }
 
+.contact-item.branch-item{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.branch-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.branch-header[role="button"]:focus{
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.branch-header .contact-name{
+  text-decoration: underline;
+}
+
+.branch-contact-toggle{
+  margin-top: 0.25rem;
+  padding-left: 0;
+  width: 100%;
+}
+
+.branch-contact-toggle .link{
+  display: inline-block;
+  width: auto;
+  margin-top: 0;
+  margin-left: 0;
+  text-align: left !important;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
 .contact-item{
   display        : flex;
   align-items    : center;
@@ -593,3 +632,40 @@
 
 .info-box p{ margin: 0 0 0.75rem 0; }
 .info-box p:last-child{ margin-bottom: 0; }
+
+/* info-box 내부의 contact-list 반응형 */
+.info-box .contact-list{
+  margin: 0;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px){
+  .info-box .contact-list{
+    gap: 0.75rem;
+  }
+  
+  .info-box .contact-item{
+    padding: 1rem 1.5rem;
+    max-width: 100%;
+  }
+  
+  .info-box .contact-name{
+    min-width: 100px;
+    flex-shrink: 0;
+  }
+  
+  .info-box .contact-phone{
+    flex-grow: 1;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 860px){
+  .info-box .contact-item{
+    padding: 1rem 2rem;
+  }
+  
+  .info-box .contact-name{
+    min-width: 120px;
+  }
+}
