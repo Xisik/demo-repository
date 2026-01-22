@@ -1,10 +1,24 @@
 {
   "_metadata": {
-    "lastUpdated": "2026-01-22T14:17:42.109Z",
-    "syncStatus": "partial",
-    "errorMessage": "No activities found in database",
-    "activitiesCount": 0,
+    "lastUpdated": "2026-01-22T14:39:24.441Z",
+    "syncStatus": "success",
+    "errorMessage": null,
+    "activitiesCount": 1,
     "version": "1.0"
   },
-  "activities": []
+  "activities": [
+    {
+      "title": "웨이브 제 1호 26년 1월",
+      "date": "2026-01-23T00:00:00.000Z",
+      "summary": "웨이브 제 1호 26년 1월",
+      "body": "-빛나는 우리, 청소년 성소수자 모임 경기북부지부 소식-\n경기북부지부는 고양,파주,의정부를 관활하고 있으며 현재 고양,파주,의정부에서 활동,거주 하고있는 회원들을 가입시키려 하는중.\n2026년 1월 21일 결성, 결성후 즉시 성명 발표.\n현재 회원은 없지만 구글폼 작성 형태로 회원 모집 예정\n추후 회원이 모아지고 평등수칙,규약,규정이 정해지면 정식 설립신고후 법인계좌 개설예정.\n회원이 모아지면 6월 지방선거 관련하여 논의 예정.(ex 지방선거에서 우리는 어떻게 대책하고 어떻게 활동하여야할까?,고양,파주,의정부에서 어떤 정당의 후보와 어떤 공약이 나올까?)",
+      "slug": "2f0324dad96680029d23",
+      "published": true,
+      "category": "월간지웨이브",
+      "image": null,
+      "id": "2f0324da-d966-8002-9d23-d7ff7aab9eee",
+      "created_time": "2026-01-22T04:49:00.000Z",
+      "last_edited_time": "2026-01-22T14:32:00.000Z"
+    }
+  ]
 }
