@@ -1,10 +1,24 @@
 {
   "_metadata": {
-    "lastUpdated": "2026-01-22T04:31:42.934Z",
-    "syncStatus": "partial",
-    "errorMessage": "No activities found in database",
-    "activitiesCount": 0,
+    "lastUpdated": "2026-01-22T04:56:17.879Z",
+    "syncStatus": "success",
+    "errorMessage": null,
+    "activitiesCount": 1,
     "version": "1.0"
   },
-  "activities": []
+  "activities": [
+    {
+      "title": "2026년 1월 웨이브 (제 1호)",
+      "date": "2026-01-23T00:00:00.000Z",
+      "summary": "2026년 1월 웨이브 (제 1호)",
+      "body": "2026년 1월 웨이브 (제 1호)",
+      "slug": "2f0324dad96680b8a610",
+      "published": true,
+      "category": null,
+      "image": null,
+      "id": "2f0324da-d966-80b8-a610-d8dc32b3e9b5",
+      "created_time": "2026-01-22T04:49:00.000Z",
+      "last_edited_time": "2026-01-22T04:52:00.000Z"
+    }
+  ]
 }
