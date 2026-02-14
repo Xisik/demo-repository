@@ -277,6 +277,56 @@
 }
 
 /* =========================
+   Statements List
+========================= */
+.statement-card{
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s;
+}
+
+.statement-card:hover{
+  box-shadow: var(--shadow-2);
+}
+
+.statement-header{
+  margin-bottom: 0.75rem;
+}
+
+.statement-title{
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+
+.statement-link{
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.statement-link:hover{
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.statement-date{
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-shadow);
+  margin-bottom: 0.5rem;
+}
+
+.statement-summary{
+  margin-top: 0.5rem;
+}
+
+.statement-summary p{
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* =========================
    Activity Detail Page
 ========================= */
 .activity-detail{
