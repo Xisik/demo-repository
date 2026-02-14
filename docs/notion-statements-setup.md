@@ -34,15 +34,32 @@
 5. "제출" 클릭
 6. **Internal Integration Token** 복사
 
-### 3. 데이터베이스에 통합 연결
+### 3. 데이터베이스에 통합 연결 ⚠️ 중요!
+
+**이 단계가 가장 중요합니다. 이 단계를 건너뛰면 "Could not find database" 에러가 발생합니다.**
+
+#### 방법 1: 연결(Connections) 메뉴 사용 (권장)
 
 1. 노션 성명서 데이터베이스 페이지로 이동
-2. 우측 상단 "..." 메뉴 클릭
-3. "연결" → 생성한 통합 선택
-4. 데이터베이스 ID 확인:
-   - 데이터베이스 URL에서 확인 가능
-   - URL 형식: `https://www.notion.so/{workspace}/{database_id}?v=...`
-   - `database_id`는 32자리 16진수 문자열
+2. 우측 상단 **"..."** 메뉴 클릭
+3. **"연결"** 또는 **"Connections"** 선택
+4. 생성한 통합 이름을 검색하여 선택
+5. 연결 완료 확인
+
+#### 방법 2: 공유(Share) 메뉴 사용
+
+1. 노션 성명서 데이터베이스 페이지로 이동
+2. 우측 상단 **"공유"** 또는 **"Share"** 버튼 클릭
+3. 통합 이름을 검색하여 추가
+4. **"Can view"** 또는 **"Can edit"** 권한 부여
+5. 저장
+
+#### 데이터베이스 ID 확인
+
+- 데이터베이스 URL에서 확인 가능
+- URL 형식: `https://www.notion.so/{workspace}/{database_id}?v=...`
+- `database_id`는 32자리 16진수 문자열 (하이픈 포함 시 36자)
+- 예: `307324da-d966-80bc-ae26-d1ee149772c4`
 
 ### 4. GitHub Secrets 설정
 
@@ -57,14 +74,35 @@
 
 ### 5. 수동 테스트
 
-로컬에서 테스트하려면:
+#### 디버깅 스크립트 실행 (권장)
+
+먼저 디버깅 스크립트로 연결 상태를 확인하세요:
 
 ```bash
-# 환경 변수 설정
+# Windows PowerShell
+$env:NOTION_API_KEY="your_api_key"
+$env:NOTION_STATEMENTS_DATABASE_ID="your_database_id"
+node scripts/debug-statements.js
+
+# Mac/Linux
 export NOTION_API_KEY="your_api_key"
 export NOTION_STATEMENTS_DATABASE_ID="your_database_id"
+node scripts/debug-statements.js
+```
 
-# 스크립트 실행
+디버깅 스크립트가 성공하면 동기화 스크립트도 성공할 것입니다.
+
+#### 동기화 스크립트 실행
+
+```bash
+# Windows PowerShell
+$env:NOTION_API_KEY="your_api_key"
+$env:NOTION_STATEMENTS_DATABASE_ID="your_database_id"
+node scripts/sync-notion-statements.js
+
+# Mac/Linux
+export NOTION_API_KEY="your_api_key"
+export NOTION_STATEMENTS_DATABASE_ID="your_database_id"
 node scripts/sync-notion-statements.js
 ```
 
@@ -87,16 +125,43 @@ node scripts/sync-notion-statements.js
 
 ## 문제 해결
 
+### "Could not find database" 에러
+
+이 에러는 **통합이 데이터베이스에 연결되지 않았을 때** 발생합니다.
+
+**해결 방법:**
+
+1. **노션에서 데이터베이스 확인**
+   - 데이터베이스 페이지로 이동
+   - 우측 상단 "..." 메뉴 → "연결" 확인
+   - 통합이 연결되어 있는지 확인
+   - 연결되어 있지 않으면 통합을 추가
+
+2. **데이터베이스 ID 확인**
+   - URL에서 데이터베이스 ID 추출
+   - GitHub Secrets의 `NOTION_STATEMENTS_DATABASE_ID`와 일치하는지 확인
+   - 하이픈 포함/제외 여부 확인 (둘 다 가능)
+
+3. **디버깅 스크립트 실행**
+   ```bash
+   node scripts/debug-statements.js
+   ```
+   - 스크립트가 자세한 에러 메시지와 해결 방법을 제공합니다
+
 ### 데이터가 동기화되지 않는 경우
+
 - GitHub Actions 로그에서 에러 메시지 확인
 - 노션 데이터베이스 필드명이 올바른지 확인
 - 필수 필드(제목, 날짜)가 모든 페이지에 있는지 확인
 - `NOTION_STATEMENTS_DATABASE_ID` Secret이 올바르게 설정되었는지 확인
+- **디버깅 스크립트 실행**: `node scripts/debug-statements.js`
 
 ### 인증 오류가 발생하는 경우
+
 - `NOTION_API_KEY`가 올바른지 확인
 - 통합이 데이터베이스에 연결되어 있는지 확인
 - 데이터베이스 권한 확인
+- 노션 통합 페이지에서 토큰 재생성: https://www.notion.so/my-integrations
 
 ## 관련 문서
 

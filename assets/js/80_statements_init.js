@@ -67,7 +67,8 @@
           renderStatementList(sorted, container);
           
           // Story 2.4: 동기화 상태 및 마지막 업데이트 시각 표시
-          if (result.metadata) {
+          // success 상태가 아닐 때만 표시
+          if (result.metadata && result.metadata.syncStatus !== 'success') {
             const lastUpdated = result.metadata.lastUpdated ? new Date(result.metadata.lastUpdated) : null;
             showSyncStatus(result.metadata, lastUpdated);
           }
@@ -277,8 +278,19 @@
    * @param {Date} lastUpdated - 마지막 업데이트 시각
    */
   function showSyncStatus(metadata, lastUpdated) {
-    if (!metadata || metadata.syncStatus === 'success') {
-      return; // 성공 시 표시하지 않음
+    // 디버깅: 메타데이터 상태 로그
+    if (metadata) {
+      console.log('Sync status check:', {
+        syncStatus: metadata.syncStatus,
+        statementsCount: metadata.statementsCount,
+        lastUpdated: metadata.lastUpdated,
+        errorMessage: metadata.errorMessage
+      });
+    }
+    
+    // success 상태이거나 메타데이터가 없으면 표시하지 않음
+    if (!metadata || !metadata.syncStatus || metadata.syncStatus === 'success') {
+      return;
     }
     
     const { formatDateKorean } = ui.statements.list || {};

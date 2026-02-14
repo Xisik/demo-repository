@@ -1,0 +1,24 @@
+{
+  "_metadata": {
+    "lastUpdated": "2026-02-14T14:15:22.418Z",
+    "syncStatus": "success",
+    "errorMessage": null,
+    "statementsCount": 1,
+    "version": "1.0"
+  },
+  "statements": [
+    {
+      "title": "테스트",
+      "date": "2026-02-14T00:00:00.000Z",
+      "summary": "test",
+      "body": "테스트입니다.",
+      "slug": "307324dad96680829f06",
+      "published": true,
+      "category": null,
+      "image": null,
+      "id": "307324da-d966-8082-9f06-c7fa40ef53ee",
+      "created_time": "2026-02-14T13:33:00.000Z",
+      "last_edited_time": "2026-02-14T13:48:00.000Z"
+    }
+  ]
+}
